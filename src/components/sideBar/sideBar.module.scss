@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+}
+
+.sideBar {
+  width: 280px;
+  height: auto;
+  min-height: 100vh;
+  border-right: 1px solid #dcdcdc;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.pageButton {
+  border: none;
+  background-color: transparent;
+  color: #979797;
+  font-weight: 600;
+  width: 250px;
+  text-align: start;
+  margin: 2px 0;
+  padding-left: 70px;
+  height: 50px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.pageButton:hover {
+  background-color: #dcdcdc;
+  color: #0083bb;
+}
+
+.pageSelected,
+.pageSelected:hover {
+  background-color: #0083bb;
+  color: white;
+}
+
+.iconPage {
+  margin-right: 10px;
+}
+.pageButton:hover .iconPage path {
+  fill: #0083bb;
+}
+.pageSelected .iconPage path,
+.pageSelected:hover .iconPage path {
+  fill: white;
+}

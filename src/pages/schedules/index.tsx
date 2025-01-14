@@ -1,11 +1,11 @@
-import styles from './styles.module.scss';
 import HeadComponent from "@/components/head/head";
+import styles from './styles.module.scss';
 
 export default function Schedules() {
   return (
     <div>
       <HeadComponent />
-      <section>Horários</section>
+      <section className={styles.container}>Horários</section>
     </div>
   );
 }
