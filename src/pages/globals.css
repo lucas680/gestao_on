@@ -3,3 +3,10 @@ body{
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.alerts-container{
+  position: fixed;
+  bottom: 20px;
+  margin-left: 280px;
+  width: 100%;
+}

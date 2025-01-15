@@ -1,0 +1,40 @@
+.container {
+  background-color: #0083bb;
+  padding: 12px 20px;
+  border-radius: 16px;
+  max-width: calc(100% - 330px);
+  width: max-content;
+  margin-left: 20px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.success {
+  background-color: #02b674;
+}
+
+.error {
+  background-color: #f10004;
+}
+
+.container .alertText {
+  display: flex;
+  align-items: center;
+}
+
+.container .alertText p {
+  margin-left: 10px;
+}
+
+.container p {
+  margin: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.iconClose {
+  cursor: pointer;
+  margin-left: 20px;
+}
