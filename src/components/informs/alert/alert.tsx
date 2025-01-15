@@ -43,6 +43,7 @@ interface IcloseIcon {
 const CloseIcon = (props: IcloseIcon) => {
   return (
     <svg
+      aria-label="Fechar botão de alerta"
       className={styles.iconClose}
       onClick={props.onClose}
       width="14"

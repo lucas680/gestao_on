@@ -88,7 +88,7 @@ export default function SideBar(props: IsideBar) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.sideBar}>
+      <div className={styles.sideBarContainer}>
         <Image
           src="logo.svg"
           alt="Logotipo do sistema"
@@ -96,8 +96,9 @@ export default function SideBar(props: IsideBar) {
           height={28}
           className={styles.logo}
         />
-        <div className={styles.pageContainer}>
+        <div className={styles.sideBar}>
           <button
+            arial-label="Tela de horários"
             className={`${styles.pageButton} ${
               router.pathname == "/schedules" && styles.pageSelected
             }`}
@@ -107,6 +108,7 @@ export default function SideBar(props: IsideBar) {
             Horários
           </button>
           <button
+            arial-label="Tela de disciplinas"
             className={`${styles.pageButton} ${
               router.pathname == "/disciplines" && styles.pageSelected
             }`}
@@ -116,6 +118,7 @@ export default function SideBar(props: IsideBar) {
             Disciplinas
           </button>
           <button
+            arial-label="Tela de professores"
             className={`${styles.pageButton} ${
               router.pathname == "/teachers" && styles.pageSelected
             }`}
@@ -125,6 +128,7 @@ export default function SideBar(props: IsideBar) {
             Professores
           </button>
           <button
+            arial-label="Tela de turmas"
             className={`${styles.pageButton} ${
               router.pathname == "/classes" && styles.pageSelected
             }`}
@@ -135,7 +139,7 @@ export default function SideBar(props: IsideBar) {
           </button>
         </div>
       </div>
-      <div>{props.page}</div>
+      <div className={styles.pages}>{props.page}</div>
     </div>
   );
 }
