@@ -1,0 +1,72 @@
+.background {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+  max-width: 500px;
+}
+
+.confirmHeader {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirmHeader svg {
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.confirmHeader svg path {
+  fill: #b3b4b8;
+}
+
+.confirmBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.confirmBody p {
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  color: #979797;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.containerButton{
+  width: 100%;
+}
+
+.confirmBody button {
+  width: calc(100%/2 - 5px);
+}
+
+.actionButton{
+  margin-left: 10px;
+  color: white;
+}
+
+.colorRed{
+  background-color: #FF0004;
+}
+
+.colorBlue{
+  background-color: #0083BB;
+}

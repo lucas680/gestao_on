@@ -1,4 +1,5 @@
 import Alert from "@/components/informs/alert/alert";
+import Confirm from "@/components/informs/confirm/confirm";
 import Warning from "@/components/informs/warning/warning";
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -79,4 +80,41 @@ export function alertWarning(message: string) {
       }}
     />
   );
+}
+
+export async function confirmAction(
+  message: string,
+  buttonText: string,
+  buttonColor: "red" | "blue"
+): Promise<boolean> {
+  return new Promise((resolve) => {
+    const confirmContainer = document.getElementById("confirm-container");
+
+    if (!confirmContainer) {
+      console.error("Div 'confirm-container' não encontrada.");
+      resolve(false);
+      return;
+    }
+
+    const confirmElement = document.createElement("div");
+    confirmContainer.appendChild(confirmElement);
+
+    const root = createRoot(confirmElement);
+
+    const handleClose = (result: boolean) => {
+      root.unmount();
+      confirmContainer.removeChild(confirmElement);
+      resolve(result);
+    };
+
+    root.render(
+      <Confirm
+        text={message}
+        buttonText={buttonText}
+        buttonColor={buttonColor}
+        onClose={() => handleClose(false)} 
+        action={() => handleClose(true)}
+      />
+    );
+  });
 }

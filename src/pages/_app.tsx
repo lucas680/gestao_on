@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <div id="alerts-container" className="alerts-container"></div>
       <div id="alert-warning"></div>
+      <div id="confirm-container"></div>
       <SideBar page={<Component {...pageProps} />} />
     </>
   );
