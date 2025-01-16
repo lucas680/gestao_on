@@ -1,4 +1,5 @@
 import "./globals.css";
+import './theme.scss';
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import SideBar from "@/components/sideBar/sideBar";

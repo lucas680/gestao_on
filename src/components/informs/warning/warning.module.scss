@@ -45,16 +45,16 @@
   margin: 0;
   text-align: center;
   font-size: 20px;
-  color: #979797;
+  color: var(--secondaryColor);
   font-weight: 400;
   margin: 20px 0;
 }
 
 .warningBody button {
-  border: 2px solid #979797;
+  border: 2px solid var(--secondaryColor);
   background-color: transparent;
   font-size: 20px;
-  color: #979797;
+  color: var(--secondaryColor);
   font-weight: 400;
   border-radius: 10px;
   padding: 5px 12px;

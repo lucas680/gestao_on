@@ -45,12 +45,12 @@
 
 .pageButton:hover {
   background-color: #f4f4f4;
-  color: #0083bb;
+  color: var(--primaryColor);
 }
 
 .pageSelected,
 .pageSelected:hover {
-  background-color: #0083bb;
+  background-color: var(--primaryColor);
   color: white;
 }
 
@@ -58,7 +58,7 @@
   margin-right: 10px;
 }
 .pageButton:hover .iconPage path {
-  fill: #0083bb;
+  fill: var(--primaryColor);
 }
 .pageSelected .iconPage path,
 .pageSelected:hover .iconPage path {
