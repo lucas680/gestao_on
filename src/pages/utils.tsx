@@ -1,4 +1,5 @@
 import Alert from "@/components/informs/alert/alert";
+import Warning from "@/components/informs/warning/warning";
 import React from "react";
 import { createRoot } from "react-dom/client";
 
@@ -51,4 +52,31 @@ export function alertSuccess(message: string) {
 
 export function alertError(message: string) {
   createAlert("error", message);
+}
+
+export function alertWarning(message: string) {
+  const alertWarningContainer = document.getElementById("alert-warning");
+
+  if (!alertWarningContainer) {
+    console.error("Div 'alert-warning' não encontrada.");
+    return;
+  }
+
+  const handleClose = (alertElement: HTMLElement) => {
+    alertWarningContainer.removeChild(alertElement);
+  };
+
+  const alertElement = document.createElement("div");
+  alertWarningContainer.appendChild(alertElement);
+
+  const root = createRoot(alertElement);
+  root.render(
+    <Warning
+      text={message}
+      onClose={() => {
+        root.unmount();
+        handleClose(alertElement);
+      }}
+    />
+  );
 }
