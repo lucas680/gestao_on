@@ -9,7 +9,7 @@ body {
 button {
   cursor: pointer;
   border: none;
-  background-color: #e8e8e8;
+  background-color: var(--buttonBackground);
   font-size: 20px;
   color: var(--secondaryColor);
   font-weight: 400;
@@ -29,7 +29,7 @@ button:hover {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #c0d0d7;
+  background-color: var(--lateralBarColor);
   border-radius: 20px;
   border: 5px solid var(--backgroundColor);
   cursor: pointer;

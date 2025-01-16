@@ -6,5 +6,9 @@
     --errorColor: #F10004; //cor de alertas de erro
     --alertColor: white; //cor do texto dos aletas (fundo red, green, blue)
     --shadowColor: rgba(0, 0, 0, 0.25); //cor das sombras e do fundo dos modais
-    --borderColor: #dcdcdc; //cor das bordas
+    --borderColor: #dcdcdc; //cor das bordas e hover dos botões barra lateral
+
+    --sideBarButtonHover: #f4f4f4; //cor do hover dos botões da barra lateral
+    --buttonBackground: #e8e8e8; //cor padrão de todos os botões
+    --lateralBarColor: #c0d0d7; //cor da barra lateral (em hover fica primaryColor)
 }
