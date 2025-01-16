@@ -1,5 +1,5 @@
 .background {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--shadowColor);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -12,8 +12,8 @@
 
 .container {
   position: fixed;
-  background-color: white;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--backgroundColor);
+  box-shadow: 0 3px 4px var(--shadowColor);
   border-radius: 22px;
   max-width: 500px;
 }
@@ -30,7 +30,7 @@
 }
 
 .warningHeader svg path {
-  fill: #b3b4b8;
+  fill: var(--secondaryColor);
 }
 
 .warningBody {
