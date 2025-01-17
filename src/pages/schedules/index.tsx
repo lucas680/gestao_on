@@ -17,7 +17,7 @@ export default function Schedules() {
           value={search}
           onChange={(e) => setSearch(e)}
           onSearch={onSearch}
-        />
+        /><br/>
       </section>
     </div>
   );
