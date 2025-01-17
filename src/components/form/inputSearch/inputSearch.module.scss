@@ -1,0 +1,31 @@
+.container {
+  background-color: var(--searchBackground);
+  border-radius: 12px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.container input {
+  border: none;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background-color: var(--searchBackground);
+  color: var(--searchTextColor);
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.container svg{
+    font-size: 22px;
+    color: var(--searchTextColor);
+    cursor: pointer;
+}
+
+.container svg:nth-child(3){
+    font-size: 28px;
+}
