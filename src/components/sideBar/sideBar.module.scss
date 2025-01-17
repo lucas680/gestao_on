@@ -54,13 +54,13 @@
   color: white;
 }
 
-.iconPage {
+.pageButton svg {
   margin-right: 10px;
 }
-.pageButton:hover .iconPage path {
+.pageButton:hover svg path {
   fill: var(--primaryColor);
 }
-.pageSelected .iconPage path,
-.pageSelected:hover .iconPage path {
+.pageSelected svg path,
+.pageSelected:hover svg path {
   fill: white;
 }
