@@ -187,3 +187,20 @@ export const PeopleIcon = () => {
     </svg>
   );
 };
+
+export const AddIcon = () => {
+  return (
+    <svg
+      width="38"
+      height="38"
+      viewBox="0 0 38 38"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.2857 38V21.7143H0V16.2857H16.2857V0H21.7143V16.2857H38V21.7143H21.7143V38H16.2857Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
