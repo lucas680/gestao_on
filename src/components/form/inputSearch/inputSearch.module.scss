@@ -20,12 +20,14 @@
   font-weight: 400;
 }
 
-.container svg{
-    font-size: 22px;
-    color: var(--searchTextColor);
+.container svg path{
     cursor: pointer;
 }
 
-.container svg:nth-child(3){
-    font-size: 28px;
+.container svg:nth-child(1) path{
+  stroke: var(--searchTextColor);
+}
+
+.container svg:nth-child(3) path{
+    fill: var(--searchTextColor);
 }

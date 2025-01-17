@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CancelIcon, SearchIcon } from "@/components/icons/icons";
 import styles from "./inputSearch.module.scss";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 
 interface IinputSearch {
   value: string;
@@ -12,10 +10,7 @@ interface IinputSearch {
 export default function InputSearch(props: IinputSearch) {
   return (
     <div className={styles.container}>
-      <FontAwesomeIcon
-        icon={faMagnifyingGlass}
-        onClick={() => props.onSearch()}
-      />
+      <SearchIcon onClick={() => props.onSearch()} />
       <input
         type="text"
         value={props.value}
@@ -29,10 +24,7 @@ export default function InputSearch(props: IinputSearch) {
         }}
       />
       {props.value != "" && (
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          onClick={() => props.onChange("")}
-        />
+        <CancelIcon onClick={() => props.onChange("")} />
       )}
     </div>
   );
