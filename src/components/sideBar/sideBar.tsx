@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import styles from "./sideBar.module.scss";
 import { useRouter } from "next/router";
-import { BookIcon, HourIcon, PeopleIcon, TeacherIcon } from "../icons/icons";
+import { BookIcon, HourIcon, PeopleGroupIcon, TeacherIcon } from "../icons/icons";
 
 interface IsideBar {
   page: ReactNode;
@@ -63,7 +63,7 @@ export default function SideBar(props: IsideBar) {
             }`}
             onClick={() => onClickPage("/classes")}
           >
-            <PeopleIcon />
+            <PeopleGroupIcon />
             Turmas
           </button>
         </div>

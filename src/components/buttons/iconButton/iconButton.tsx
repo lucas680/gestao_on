@@ -1,22 +1,21 @@
 import styles from "./iconButton.module.scss";
 
 interface Ibutton {
-  icon?: React.ReactNode;
-  text: string;
+  icon: React.ReactNode;
   onClick: () => void;
-  color: "red" | "blue";
+  isCircle?: boolean;
+  color?: "red" | "blue";
 }
 
 export default function IconButton(props: Ibutton) {
   return (
     <button
-      className={`${styles.button} ${
-        props.color == "red" ? styles.colorRed : styles.colorBlue
-      }`}
+      className={`${styles.button} ${props.isCircle && styles.isCircle} ${
+        props.color == "red" && styles.colorRed
+      } ${props.color == "blue" && styles.colorBlue}`}
       onClick={props.onClick}
     >
       {props.icon}
-      {props.text}
     </button>
   );
 }

@@ -1,23 +1,28 @@
-.button{
-    color: var(--alertColor);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .button svg{
-    margin-right: 10px;
-    height: 20px;
-    width: 20px;
-}
-.button svg path{
-    fill: white;
+    width: 22px;
+    height: 22px;
 }
 
-.colorRed{
-    background-color: var(--errorColor);
+.button svg path {
+  fill: var(--secondaryColor);
 }
 
-.colorBlue{
+.button.colorRed {
+  background-color: var(--errorColor);
+}
+
+.button.colorBlue {
     background-color: var(--primaryColor);
+  }
+
+.button.colorRed svg path,
+.button.colorBlue svg path {
+  fill: var(--alertColor);
+}
+
+.isCircle{
+    border-radius: 100%;
+    width: 55px;
+    height: 40px;
+    padding: 0 !important;
 }
