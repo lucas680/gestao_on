@@ -204,3 +204,31 @@ export const AddIcon = () => {
     </svg>
   );
 };
+
+export const ArrowTop = () => {
+  return (
+    <svg
+      width="26"
+      height="13"
+      viewBox="0 0 26 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M26 13L13.0833 0.0833321L0.166664 13H26Z" fill="#93949A" />
+    </svg>
+  );
+};
+
+export const ArrowBottom = () => {
+  return (
+    <svg
+      width="26"
+      height="13"
+      viewBox="0 0 26 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 0L12.9167 12.9167L25.8333 0H0Z" fill="#93949A" />
+    </svg>
+  );
+};

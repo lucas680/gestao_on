@@ -8,6 +8,7 @@ export default function Schedules() {
   const onSearch = () => {
     //
   };
+
   return (
     <div>
       <HeadComponent />

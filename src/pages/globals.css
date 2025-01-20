@@ -26,6 +26,8 @@ button:hover {
 
 *::-webkit-scrollbar-track {
   background: var(--backgroundColor);
+  border-radius: 20px;
+  margin: 5px 0;
 }
 
 *::-webkit-scrollbar-thumb {

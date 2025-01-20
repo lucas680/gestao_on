@@ -33,7 +33,7 @@ export default function Input(props: Iinput) {
           <div className={styles.afterIcon}>{props.afterIcon}</div>
         )}
       </div>
-      {!props.isValid && (
+      {!props.isValid && props.invalidMessage && (
         <p className={styles.invalidMessage}>{props.invalidMessage}</p>
       )}
     </div>
