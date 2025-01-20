@@ -4,11 +4,10 @@ import InputSearch from "@/components/form/inputSearch/inputSearch";
 import { useState } from "react";
 
 export default function Schedules() {
-  const [search, setSearch] = useState("test");
+  const [search, setSearch] = useState("");
   const onSearch = () => {
     //
   };
-
   return (
     <div>
       <HeadComponent />
@@ -17,7 +16,7 @@ export default function Schedules() {
           value={search}
           onChange={(e) => setSearch(e)}
           onSearch={onSearch}
-        /><br/>
+        />
       </section>
     </div>
   );

@@ -1,0 +1,48 @@
+.inputContainer{
+    border-radius: 12px;
+    border: 1px solid var(--searchTextColor);
+    padding: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.beforeIcon{
+    margin-left: 15px;
+    height: 25px;
+}
+.afterIcon{
+    margin-right: 15px;
+    height: 25px;
+}
+.inputContainer svg{
+    width: 25px;
+    width: 25px;
+}
+.inputContainer svg path{
+    fill: var(--searchTextColor);
+}
+
+.invalidInput{
+    border: 1px solid var(--errorColor);
+}
+
+.inputContainer input{
+    height: 100%;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 12px;
+    color: var(--searchTextColor);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.invalidMessage{
+    margin: 0;
+    color: var(--errorColor);
+    font-size: 16px;
+    font-weight: 500;
+}
