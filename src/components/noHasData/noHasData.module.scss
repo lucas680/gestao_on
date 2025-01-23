@@ -1,0 +1,25 @@
+.container{
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.circleIcon{
+    background-color: var(--noHasDataIconBackground);
+    padding: 50px;
+    border-radius: 100%;
+}
+.circleIcon svg path{
+    fill: var(--noHasDataIconColor);
+}
+
+.container p{
+    max-width: 350px;
+    text-align: center;
+    color: var(--secondaryColor);
+    font-size: 18px;
+    font-weight: 400;
+}

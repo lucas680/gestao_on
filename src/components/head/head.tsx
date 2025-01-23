@@ -4,7 +4,7 @@ export default function HeadComponent() {
   return (
     <Head>
       <title>Gestão.E</title>
-      <link rel="icon" href="logoBlue.svg" />
+      <link rel="icon" href="./logoBlue.svg" />
     </Head>
   );
 }

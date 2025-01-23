@@ -19,7 +19,7 @@ export default function SideBar(props: IsideBar) {
     <div className={styles.container}>
       <div className={styles.sideBarContainer}>
         <Image
-          src="logo.svg"
+          src="./logo.svg"
           alt="Logotipo do sistema"
           width={94}
           height={28}
