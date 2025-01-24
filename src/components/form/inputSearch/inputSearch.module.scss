@@ -11,7 +11,7 @@
 
 .container input {
   border: none;
-  height: 100%;
+  height: calc(100% - 2px);
   width: 100%;
   outline: none;
   background-color: var(--searchBackground);
@@ -21,7 +21,7 @@
   font-weight: 400;
 }
 
-.container svg path{
+.container svg{
     cursor: pointer;
 }
 
