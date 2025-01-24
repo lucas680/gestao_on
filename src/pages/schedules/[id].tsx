@@ -9,9 +9,7 @@ export default function SchedulesIndex() {
   return (
     <div>
       <HeadComponent />
-      <section className={styles.container}>
-      okok index {id}
-      </section>
+      <section className={styles.container}>okok index {id}</section>
     </div>
   );
 }

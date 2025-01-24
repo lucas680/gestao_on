@@ -2,7 +2,12 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import styles from "./sideBar.module.scss";
 import { useRouter } from "next/router";
-import { BookIcon, HourIcon, PeopleGroupIcon, TeacherIcon } from "../icons/icons";
+import {
+  BookIcon,
+  HourIcon,
+  PeopleGroupIcon,
+  TeacherIcon,
+} from "../icons/icons";
 
 interface IsideBar {
   page: ReactNode;
@@ -15,11 +20,22 @@ export default function SideBar(props: IsideBar) {
     router.push(page);
   };
 
+  const paths: string[] = [
+    "/schedules",
+    "/schedules/[id]",
+    "/disciplines",
+    "/teachers",
+    "/classes"
+  ];
+  if (!paths.includes(router.pathname)) {
+    return <div>{props.page}</div>;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.sideBarContainer}>
         <Image
-          src="./logo.svg"
+          src="/logo.svg"
           alt="Logotipo do sistema"
           width={94}
           height={28}
