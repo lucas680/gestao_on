@@ -17,9 +17,13 @@
 }
 
 .container p{
-    max-width: 350px;
+    max-width: 340px;
     text-align: center;
     color: var(--secondaryColor);
     font-size: 18px;
     font-weight: 400;
+}
+
+.container button{
+    min-width: 400px;
 }

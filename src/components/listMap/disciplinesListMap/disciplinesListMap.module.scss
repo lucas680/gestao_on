@@ -19,11 +19,12 @@
   margin-right: 10px;
 }
 .title svg path {
-  fill: var(--tableIconColor);
+  fill: var(--primaryColor);
 }
 
 .view {
   cursor: pointer;
+  position: relative;
 }
 .view svg{
   width: 25px;

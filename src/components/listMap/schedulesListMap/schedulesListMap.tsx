@@ -1,5 +1,5 @@
 import { Schedule } from "@/models/schedule";
-import styles from "./scheduleListMap.module.scss";
+import styles from "./schedulesListMap.module.scss";
 import { EyeIcon, JournalIcon } from "@/components/icons/icons";
 
 interface Imap {
@@ -7,7 +7,7 @@ interface Imap {
   onClick: ()=> void;
 }
 
-export default function ScheduleListMap(props: Imap) {
+export default function SchedulesListMap(props: Imap) {
   return (
     <div className={styles.container}>
       <div className={styles.title}>

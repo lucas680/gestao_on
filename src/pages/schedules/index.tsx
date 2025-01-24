@@ -6,7 +6,7 @@ import CustomButtom from "@/components/buttons/customButton/customButtom";
 import IconButton from "@/components/buttons/iconButton/iconButton";
 import { PeopleIcon } from "@/components/icons/icons";
 import { Schedule } from "@/models/schedule";
-import ScheduleListMap from "@/components/listMap/scheduleListMap/scheduleListMap";
+import SchedulesListMap from "@/components/listMap/schedulesListMap/schedulesListMap";
 import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
@@ -48,7 +48,7 @@ export default function Schedules() {
         {schedules.length > 0 ? (
           <ListMapContent
             list={schedules.map((e, index) => (
-              <ScheduleListMap
+              <SchedulesListMap
                 key={index}
                 item={e}
                 onClick={() => router.push(`/schedules/${e.id}`)}
