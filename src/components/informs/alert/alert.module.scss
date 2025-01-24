@@ -39,3 +39,6 @@
   cursor: pointer;
   margin-left: 20px;
 }
+.container svg path{
+  fill: var(--alertColor);
+}
