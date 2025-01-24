@@ -45,7 +45,7 @@ export default function SideBar(props: IsideBar) {
           <button
             arial-label="Tela de horários"
             className={`${styles.pageButton} ${
-              router.pathname == "/schedules" && styles.pageSelected
+              router.pathname.includes("/schedules") && styles.pageSelected
             }`}
             onClick={() => onClickPage("/schedules")}
           >
@@ -55,7 +55,7 @@ export default function SideBar(props: IsideBar) {
           <button
             arial-label="Tela de disciplinas"
             className={`${styles.pageButton} ${
-              router.pathname == "/disciplines" && styles.pageSelected
+              router.pathname.includes("/disciplines") && styles.pageSelected
             }`}
             onClick={() => onClickPage("/disciplines")}
           >
@@ -65,7 +65,7 @@ export default function SideBar(props: IsideBar) {
           <button
             arial-label="Tela de professores"
             className={`${styles.pageButton} ${
-              router.pathname == "/teachers" && styles.pageSelected
+              router.pathname.includes("/teachers") && styles.pageSelected
             }`}
             onClick={() => onClickPage("/teachers")}
           >
@@ -75,7 +75,7 @@ export default function SideBar(props: IsideBar) {
           <button
             arial-label="Tela de turmas"
             className={`${styles.pageButton} ${
-              router.pathname == "/classes" && styles.pageSelected
+              router.pathname.includes("/classes") && styles.pageSelected
             }`}
             onClick={() => onClickPage("/classes")}
           >
