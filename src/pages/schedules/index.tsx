@@ -1,7 +1,7 @@
 import HeadComponent from "@/components/head/head";
 import styles from "./styles.module.scss";
 import InputSearch from "@/components/form/inputSearch/inputSearch";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CustomButtom from "@/components/buttons/customButton/customButtom";
 import IconButton from "@/components/buttons/iconButton/iconButton";
 import { PeopleIcon } from "@/components/icons/icons";
@@ -21,16 +21,13 @@ export default function Schedules() {
 
   const [schedules, setSchedules] = useState<Schedule[]>([]);
 
-  useEffect(() => {
-    setSchedules([
-      new Schedule(1, "teste", new Date()),
-      new Schedule(2, "testeeee 2", new Date()),
-    ]);
-  }, []);
-
   const generateReport = ()=>{
     openLoading();
     setTimeout(()=>{
+      setSchedules([
+        new Schedule(1, "teste", new Date()),
+        new Schedule(2, "testeeee 2", new Date()),
+      ]);
       closeLoading();
       alertSuccess("Horários criados com sucesso!");
     }, 6000);
