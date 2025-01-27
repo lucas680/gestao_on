@@ -10,7 +10,6 @@ import SchedulesListMap from "@/components/listMap/schedulesListMap/schedulesLis
 import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
-import { alertError, alertSuccess } from "../../utils/utils";
 
 export default function Schedules() {
   const router = useRouter();
@@ -26,11 +25,6 @@ export default function Schedules() {
       new Schedule(1, "teste", new Date()),
       new Schedule(2, "testeeee 2", new Date()),
     ]);
-  }, []);
-
-  useEffect(()=>{
-    alertError('okok')
-    alertSuccess('okok success');
   }, []);
 
   return (
