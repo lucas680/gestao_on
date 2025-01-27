@@ -34,23 +34,24 @@ export default function Disciplines() {
     <div>
       <HeadComponent />
       <section className={styles.container}>
-        <FloatButton onClick={onAddButton} icon={<AddIcon />} />
-        <div className={styles.schedulesHeader}>
-          <InputSearch
-            value={search}
-            onChange={(e) => setSearch(e)}
-            onSearch={onSearch}
-          />
-        </div>
         {disciplines.length > 0 ? (
-          <ListMapContent
-            list={disciplines.map((e, index) => (
-              <DisciplinesListMap
-                key={index}
-                item={e}
+          <div>
+            <FloatButton onClick={onAddButton} icon={<AddIcon />} />
+            <div className={styles.schedulesHeader}>
+              <InputSearch
+                value={search}
+                onChange={(e) => setSearch(e)}
+                onSearch={onSearch}
               />
-            ))}
-          />
+            </div>
+            <div>
+              <ListMapContent
+                list={disciplines.map((e, index) => (
+                  <DisciplinesListMap key={index} item={e} />
+                ))}
+              />
+            </div>
+          </div>
         ) : (
           <NoHasData
             description="Nenhuma disciplina cadastrada no sistema."

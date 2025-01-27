@@ -1,0 +1,14 @@
+.container{
+    padding: 20px;
+}
+
+.schedulesHeader{
+    display: flex;
+    align-items: center;
+}
+
+.schedulesHeader button{
+    margin-left: 10px;
+    padding: 10px 25px;
+    min-width: max-content;
+}
