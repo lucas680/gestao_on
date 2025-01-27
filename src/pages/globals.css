@@ -4,6 +4,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--backgroundColor);
   color: var(--secondaryColor);
+  user-select: none;
 }
 
 button {
