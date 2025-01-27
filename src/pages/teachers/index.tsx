@@ -10,7 +10,7 @@ import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Teacher } from "@/models/teacher";
 import { Discipline } from "@/models/discipline";
 import TeachersListMap from "@/components/listMap/teachersListMap/teachersListMap";
-import { alertError, alertSuccess } from "../../utils/utils";
+import { alertSuccess } from "../../utils/utils";
 
 export default function Teachers() {
   const router = useRouter();
@@ -56,7 +56,7 @@ export default function Teachers() {
   };
 
   const onEdit = (id: number) => {
-    alertError(`editandooo ${id}`);
+    router.push(`/teachers/${id}`)
   };
 
   const onAddButton = () => {

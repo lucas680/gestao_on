@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Discipline } from "@/models/discipline";
 import DisciplinesListMap from "@/components/listMap/disciplinesListMap/disciplinesListMap";
-import { alertError, alertSuccess } from "../../utils/utils";
+import { alertSuccess } from "../../utils/utils";
 
 export default function Disciplines() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function Disciplines() {
   };
 
   const onEdit = (id: number) => {
-    alertError(`editandooo ${id}`);
+    router.push(`/disciplines/${id}`)
   };
 
   const onAddButton = () => {

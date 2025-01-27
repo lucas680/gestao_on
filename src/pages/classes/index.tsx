@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Classe } from "@/models/classe";
 import ClassesListMap from "@/components/listMap/classesListMap/classesListMap";
-import { alertError, alertSuccess } from "../../utils/utils";
+import { alertSuccess } from "../../utils/utils";
 
 export default function Classes() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function Classes() {
   };
 
   const onEdit = (id: number) => {
-    alertError(`editandooo ${id}`);
+    router.push(`/classes/${id}`)
   };
 
   const onAddButton = () => {

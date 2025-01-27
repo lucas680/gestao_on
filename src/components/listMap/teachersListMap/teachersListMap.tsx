@@ -1,5 +1,5 @@
 import styles from "./teachersListMap.module.scss";
-import { MoreIcon, PeopleGroupIcon } from "@/components/icons/icons";
+import { MoreIcon, PeopleIcon } from "@/components/icons/icons";
 import { useEffect, useRef, useState } from "react";
 import CustomDropdown, {
   CustomDropdownItem,
@@ -44,7 +44,7 @@ export default function TeachersListMap(props: Imap) {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <PeopleGroupIcon />
+        <PeopleIcon />
         <p>{props.item.name}</p>
       </div>
       <p>{props.item.discipline.title}</p>

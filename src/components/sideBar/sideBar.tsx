@@ -24,8 +24,14 @@ export default function SideBar(props: IsideBar) {
     "/schedules",
     "/schedules/[id]",
     "/disciplines",
+    "/disciplines/[id]",
+    "/disciplines/add",
     "/teachers",
-    "/classes"
+    "/teachers/[id]",
+    "/teachers/add",
+    "/classes",
+    "/classes/[id]",
+    "/classes/add"
   ];
   if (!paths.includes(router.pathname)) {
     return <div>{props.page}</div>;
