@@ -118,3 +118,17 @@ export async function confirmAction(
     );
   });
 }
+
+export function openLoading(){
+  const element = document.getElementById("custom-loading");
+  if(element){
+    element.style.display = "flex";
+  }
+}
+
+export function closeLoading(){
+  const element = document.getElementById("custom-loading");
+  if(element){
+    element.style.display = "none";
+  }
+}

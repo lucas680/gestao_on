@@ -10,6 +10,7 @@ import SchedulesListMap from "@/components/listMap/schedulesListMap/schedulesLis
 import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
+import { alertSuccess, closeLoading, openLoading } from "@/utils/utils";
 
 export default function Schedules() {
   const router = useRouter();
@@ -27,6 +28,14 @@ export default function Schedules() {
     ]);
   }, []);
 
+  const generateReport = ()=>{
+    openLoading();
+    setTimeout(()=>{
+      closeLoading();
+      alertSuccess("Horários criados com sucesso!");
+    }, 6000);
+  }
+
   return (
     <div>
       <HeadComponent />
@@ -37,7 +46,7 @@ export default function Schedules() {
             onChange={(e) => setSearch(e)}
             onSearch={onSearch}
           />
-          <CustomButtom text="Gerar horários" color="blue" onClick={() => {}} />
+          <CustomButtom text="Gerar horários" color="blue" onClick={generateReport} />
           <IconButton
             color="blue"
             isCircle

@@ -4,6 +4,7 @@ import '../utils/utils.tsx';
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import SideBar from "@/components/sideBar/sideBar";
+import Loading from "@/components/loading/loading";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div id="alerts-container" className="alerts-container"></div>
       <div id="alert-warning"></div>
       <div id="confirm-container"></div>
+      <Loading />
       <SideBar page={<Component {...pageProps} />} />
     </>
   );
