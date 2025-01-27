@@ -10,7 +10,7 @@ import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Teacher } from "@/models/teacher";
 import { Discipline } from "@/models/discipline";
 import TeachersListMap from "@/components/listMap/teachersListMap/teachersListMap";
-import { alertError, alertSuccess } from "../utils";
+import { alertError, alertSuccess } from "../../utils/utils";
 
 export default function Teachers() {
   const router = useRouter();
@@ -45,9 +45,9 @@ export default function Teachers() {
   };
 
   const getDisciplines = () => {
-    // setDisciplines([
-    //   new Discipline(1, "Matemática"),
-    // ]);
+    setDisciplines([
+      new Discipline(1, "Matemática"),
+    ]);
   };
 
   const onRemove = (id: number) => {

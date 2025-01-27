@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Classe } from "@/models/classe";
 import ClassesListMap from "@/components/listMap/classesListMap/classesListMap";
-import { alertError, alertSuccess } from "../utils";
+import { alertError, alertSuccess } from "../../utils/utils";
 
 export default function Classes() {
   const router = useRouter();
