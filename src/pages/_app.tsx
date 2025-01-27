@@ -2,16 +2,14 @@ import "./globals.css";
 import './theme.scss';
 import '../utils/utils.tsx';
 import type { AppProps } from "next/app";
-import Head from "next/head";
 import SideBar from "@/components/sideBar/sideBar";
 import Loading from "@/components/loading/loading";
+import HeadComponent from "@/components/head/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <HeadComponent />
       <div id="alerts-container" className="alerts-container"></div>
       <div id="alert-warning"></div>
       <div id="confirm-container"></div>
