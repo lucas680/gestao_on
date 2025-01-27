@@ -10,6 +10,7 @@ import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Teacher } from "@/models/teacher";
 import { Discipline } from "@/models/discipline";
 import TeachersListMap from "@/components/listMap/teachersListMap/teachersListMap";
+import { alertError, alertSuccess } from "../utils";
 
 export default function Teachers() {
   const router = useRouter();
@@ -21,11 +22,24 @@ export default function Teachers() {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
 
   useEffect(() => {
-    // setTeachers([
-    //   new Teacher(1, "Carlos Antônio", new Discipline(1, "Matemática"), "Regular"),
-    //   new Teacher(2, "Maria Gadú Egral", new Discipline(2, "Artes"), "Integral"),
-    // ]);
+    getTeachers();
   }, []);
+
+  const getTeachers = () => {
+    setTeachers([
+      new Teacher(1, "Carlos Antônio", new Discipline(1, "Matemática"), "Regular"),
+      new Teacher(2, "Maria Gadú Egral", new Discipline(2, "Artes"), "Integral"),
+    ]);
+    };
+  
+    const onRemove = (id: number) => {
+      setTeachers(teachers.filter(e => e.id != id));
+      alertSuccess(`Professor removido com sucesso! id: ${id}`);
+    };
+  
+    const onEdit = (id: number) => {
+      alertError(`editandooo ${id}`);
+    };
 
   const onAddButton = () => {
     router.push("/teachers/add");
@@ -48,7 +62,12 @@ export default function Teachers() {
             <div>
               <ListMapContent
                 list={teachers.map((e, index) => (
-                  <TeachersListMap key={index} item={e} />
+                  <TeachersListMap
+                    key={index}
+                    item={e}
+                    onRemove={(id) => onRemove(id)}
+                    onEdit={(id) => onEdit(id)}
+                  />
                 ))}
               />
             </div>

@@ -4,11 +4,12 @@ import { useState } from "react";
 import CustomDropdown, {
   CustomDropdownItem,
 } from "@/components/dropdown/dropdown";
-import { alertError, alertSuccess } from "@/pages/utils";
 import { Teacher } from "@/models/teacher";
 
 interface Imap {
   item: Teacher;
+  onRemove: (id: number) => void;
+  onEdit: (id: number) => void;
 }
 
 export default function TeachersListMap(props: Imap) {
@@ -32,16 +33,12 @@ export default function TeachersListMap(props: Imap) {
             <CustomDropdownItem
               key={0}
               text="Editar"
-              onClick={() => {
-                alertSuccess(`editandooo ${props.item.name}`);
-              }}
+              onClick={() => props.onEdit(props.item.id)}
             />,
             <CustomDropdownItem
               key={1}
               text="Remover"
-              onClick={() => {
-                alertError(`removendoooo ${props.item.name}`);
-              }}
+              onClick={() => props.onRemove(props.item.id)}
             />,
           ]}
           open={isDropdownOpen}

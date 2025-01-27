@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Discipline } from "@/models/discipline";
 import DisciplinesListMap from "@/components/listMap/disciplinesListMap/disciplinesListMap";
+import { alertError, alertSuccess } from "../utils";
 
 export default function Disciplines() {
   const router = useRouter();
@@ -20,11 +21,26 @@ export default function Disciplines() {
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
 
   useEffect(() => {
+    getDisciplines();
+  }, []);
+
+  const getDisciplines = () => {
     setDisciplines([
       new Discipline(1, "Matemática"),
       new Discipline(2, "Português"),
+      new Discipline(3, "Gerografia"),
+      new Discipline(4, "Artes"),
     ]);
-  }, []);
+  };
+
+  const onRemove = (id: number) => {
+    setDisciplines(disciplines.filter(e => e.id != id));
+    alertSuccess(`Disciplina removida com sucesso! id: ${id}`);
+  };
+
+  const onEdit = (id: number) => {
+    alertError(`editandooo ${id}`);
+  };
 
   const onAddButton = () => {
     router.push("/disciplines/add");
@@ -47,7 +63,12 @@ export default function Disciplines() {
             <div>
               <ListMapContent
                 list={disciplines.map((e, index) => (
-                  <DisciplinesListMap key={index} item={e} />
+                  <DisciplinesListMap
+                    key={index}
+                    item={e}
+                    onRemove={(id) => onRemove(id)}
+                    onEdit={(id) => onEdit(id)}
+                  />
                 ))}
               />
             </div>

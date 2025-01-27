@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Classe } from "@/models/classe";
 import ClassesListMap from "@/components/listMap/classesListMap/classesListMap";
+import { alertError, alertSuccess } from "../utils";
 
 export default function Classes() {
   const router = useRouter();
@@ -20,11 +21,26 @@ export default function Classes() {
   const [classes, setClasses] = useState<Classe[]>([]);
 
   useEffect(() => {
+    getClasses();
+  }, []);
+
+  const getClasses = () => {
     setClasses([
       new Classe(1, "8 Ano A", "Regular"),
       new Classe(2, "8 Ano B", "Integral"),
+      new Classe(3, "7 Ano A", "Regular"),
+      new Classe(4, "7 Ano B", "Regular"),
     ]);
-  }, []);
+  };
+
+  const onRemove = (id: number) => {
+    setClasses(classes.filter((e) => e.id != id));
+    alertSuccess(`Turma removida com sucesso! id: ${id}`);
+  };
+
+  const onEdit = (id: number) => {
+    alertError(`editandooo ${id}`);
+  };
 
   const onAddButton = () => {
     router.push("/classes/add");
@@ -47,7 +63,12 @@ export default function Classes() {
             <div>
               <ListMapContent
                 list={classes.map((e, index) => (
-                  <ClassesListMap key={index} item={e} />
+                  <ClassesListMap
+                    key={index}
+                    item={e}
+                    onRemove={(id) => onRemove(id)}
+                    onEdit={(id) => onEdit(id)}
+                  />
                 ))}
               />
             </div>

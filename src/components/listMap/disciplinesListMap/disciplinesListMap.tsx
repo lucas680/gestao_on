@@ -5,10 +5,11 @@ import { useState } from "react";
 import CustomDropdown, {
   CustomDropdownItem,
 } from "@/components/dropdown/dropdown";
-import { alertError, alertSuccess } from "@/pages/utils";
 
 interface Imap {
   item: Discipline;
+  onRemove: (id: number) => void;
+  onEdit: (id: number) => void;
 }
 
 export default function DisciplinesListMap(props: Imap) {
@@ -30,16 +31,12 @@ export default function DisciplinesListMap(props: Imap) {
             <CustomDropdownItem
               key={0}
               text="Editar"
-              onClick={() => {
-                alertSuccess(`editandooo ${props.item.title}`);
-              }}
+              onClick={() => props.onEdit(props.item.id)}
             />,
             <CustomDropdownItem
               key={1}
               text="Remover"
-              onClick={() => {
-                alertError(`removendoooo ${props.item.title}`);
-              }}
+              onClick={() => props.onRemove(props.item.id)}
             />,
           ]}
           open={isDropdownOpen}
