@@ -79,7 +79,7 @@ export default function Disciplines() {
             button={{
               text: "Adicionar",
               color: "blue",
-              icon: <AddIcon />,
+              beforeIcon: <AddIcon />,
               onClick: onAddButton,
             }}
           />

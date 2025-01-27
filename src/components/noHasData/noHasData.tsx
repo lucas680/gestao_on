@@ -11,16 +11,21 @@ interface InoHasData {
 export default function NoHasData(props: InoHasData) {
   return (
     <div className={styles.container}>
-      <div className={styles.circleIcon}>
-        {props.iconAlert ? <WarningIcon /> : <PasteIcon />}
-      </div>
+      {props.iconAlert ? (
+        <div className={styles.warningIcon}><WarningIcon /></div>
+      ) : (
+        <div className={styles.circleIcon}>
+          <PasteIcon />
+        </div>
+      )}
       <p>{props.description}</p>
       {props.button && (
         <CustomButtom
           text={props.button.text}
           onClick={props.button.onClick}
           color={props.button.color}
-          icon={props.button.icon}
+          beforeIcon={props.button.beforeIcon}
+          afterIcon={props.button.afterIcon}
         />
       )}
     </div>

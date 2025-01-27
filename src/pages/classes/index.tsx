@@ -79,7 +79,7 @@ export default function Classes() {
             button={{
               text: "Adicionar",
               color: "blue",
-              icon: <AddIcon />,
+              beforeIcon: <AddIcon />,
               onClick: onAddButton,
             }}
           />

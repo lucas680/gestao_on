@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./select.module.scss";
-import { ArrowBottom, ArrowTop } from "@/components/icons/icons";
+import { ArrowBottomIcon, ArrowTopIcon } from "@/components/icons/icons";
 
 interface ISelect {
   isMultiple?: boolean;
@@ -38,7 +38,7 @@ export default function Select(props: ISelect) {
               )}
             </p>
           )}
-          {isOpen ? <ArrowTop /> : <ArrowBottom />}
+          {isOpen ? <ArrowTopIcon /> : <ArrowBottomIcon />}
         </div>
         <div className={styles.dropdown}>
           {props.isMultiple && (

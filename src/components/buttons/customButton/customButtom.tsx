@@ -1,7 +1,8 @@
 import styles from "./customButtom.module.scss";
 
 export interface Ibutton {
-  icon?: React.ReactNode;
+  beforeIcon?: React.ReactNode;
+  afterIcon?: React.ReactNode;
   text: string;
   onClick: () => void;
   color?: "red" | "blue" | "lightBlue";
@@ -15,8 +16,9 @@ export default function CustomButtom(props: Ibutton) {
       } ${props.color == "lightBlue" && styles.lightBlue}`}
       onClick={props.onClick}
     >
-      {props.icon}
+      {props.beforeIcon}
       {props.text}
+      {props.afterIcon}
     </button>
   );
 }

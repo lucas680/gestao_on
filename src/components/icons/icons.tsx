@@ -222,7 +222,7 @@ export const AddIcon = () => {
   );
 };
 
-export const ArrowTop = () => {
+export const ArrowTopIcon = () => {
   return (
     <svg
       width="26"
@@ -236,7 +236,7 @@ export const ArrowTop = () => {
   );
 };
 
-export const ArrowBottom = () => {
+export const ArrowBottomIcon = () => {
   return (
     <svg
       width="26"
@@ -250,7 +250,7 @@ export const ArrowBottom = () => {
   );
 };
 
-export const ArrowRight = () => {
+export const ArrowRightIcon = () => {
   return (
     <svg
       width="26"

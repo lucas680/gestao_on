@@ -2,7 +2,7 @@ import HeadComponent from "@/components/head/head";
 import styles from "./styles.module.scss";
 import InputSearch from "@/components/form/inputSearch/inputSearch";
 import { useEffect, useState } from "react";
-import { AddIcon } from "@/components/icons/icons";
+import { AddIcon, ArrowRightIcon } from "@/components/icons/icons";
 import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
@@ -19,31 +19,53 @@ export default function Teachers() {
     //
   };
 
+  const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [teachers, setTeachers] = useState<Teacher[]>([]);
 
   useEffect(() => {
+    getDisciplines();
     getTeachers();
   }, []);
 
   const getTeachers = () => {
     setTeachers([
-      new Teacher(1, "Carlos Antônio", new Discipline(1, "Matemática"), "Regular"),
-      new Teacher(2, "Maria Gadú Egral", new Discipline(2, "Artes"), "Integral"),
+      new Teacher(
+        1,
+        "Carlos Antônio",
+        new Discipline(1, "Matemática"),
+        "Regular"
+      ),
+      new Teacher(
+        2,
+        "Maria Gadú Egral",
+        new Discipline(2, "Artes"),
+        "Integral"
+      ),
     ]);
-    };
-  
-    const onRemove = (id: number) => {
-      setTeachers(teachers.filter(e => e.id != id));
-      alertSuccess(`Professor removido com sucesso! id: ${id}`);
-    };
-  
-    const onEdit = (id: number) => {
-      alertError(`editandooo ${id}`);
-    };
+  };
+
+  const getDisciplines = () => {
+    // setDisciplines([
+    //   new Discipline(1, "Matemática"),
+    // ]);
+  };
+
+  const onRemove = (id: number) => {
+    setTeachers(teachers.filter((e) => e.id != id));
+    alertSuccess(`Professor removido com sucesso! id: ${id}`);
+  };
+
+  const onEdit = (id: number) => {
+    alertError(`editandooo ${id}`);
+  };
 
   const onAddButton = () => {
     router.push("/teachers/add");
   };
+
+  const onAddButtonDisciplines = () => {
+    router.push("/disciplines/add");
+  }; 
 
   return (
     <div>
@@ -72,14 +94,25 @@ export default function Teachers() {
               />
             </div>
           </div>
-        ) : (
+        ) : disciplines.length > 0 ? (
           <NoHasData
             description="Nenhum professor cadastrado no sistema"
             button={{
               text: "Adicionar",
               color: "blue",
-              icon: <AddIcon />,
+              beforeIcon: <AddIcon />,
               onClick: onAddButton,
+            }}
+          />
+        ) : (
+          <NoHasData
+            description="Não há disciplinas cadastradas no sistema. Cadastre ao menos uma disciplina para prosseguir."
+            iconAlert
+            button={{
+              text: "Cadastrar disciplinas",
+              color: "lightBlue",
+              afterIcon: <ArrowRightIcon />,
+              onClick: onAddButtonDisciplines,
             }}
           />
         )}

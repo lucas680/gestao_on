@@ -7,6 +7,7 @@
 
 .button svg{
     margin-right: 10px;
+    margin-left: 10px;
     height: 20px;
     width: 20px;
 }
@@ -22,4 +23,13 @@
 .colorBlue{
     background-color: var(--primaryColor);
     color: var(--alertColor);
+}
+
+.lightBlue{
+    background-color: transparent;
+    border: 1px solid var(--primaryColor);
+    color: var(--primaryColor);
+}
+.lightBlue svg path{
+    fill: var(--primaryColor);
 }

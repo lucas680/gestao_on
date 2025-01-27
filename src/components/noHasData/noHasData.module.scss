@@ -16,6 +16,13 @@
     fill: var(--noHasDataIconColor);
 }
 
+.warningIcon{
+    padding: 10px;
+}
+.warningIcon svg path{
+    fill: var(--noHasWarningIconColor);
+}
+
 .container p{
     max-width: 340px;
     text-align: center;
