@@ -10,6 +10,10 @@
     padding: 20px;
 }
 
+.button:hover{
+    box-shadow: 3px 3px 12px var(--shadowColor);
+}
+
 .button svg{
     height: 30px;
     width: 30px;

@@ -6,8 +6,12 @@
   width: 340px;
   height: 100vh;
   border-right: 1px solid var(--borderColor);
+  box-shadow: 0 5px 8px var(--shadowColor);
   display: flex;
   flex-direction: column;
+}
+.sideBarContainer:hover{
+  box-shadow: 0 5px 14px var(--shadowColor);
 }
 
 .logo {
@@ -44,14 +48,15 @@
 }
 
 .pageButton:hover {
-  background-color: var(--sideBarButtonHover);
   color: var(--primaryColor);
+  box-shadow: none;
 }
 
 .pageSelected,
 .pageSelected:hover {
   background-color: var(--primaryColor);
   color: white;
+  box-shadow: 0 3px 4px var(--shadowColor);
 }
 
 .pageButton svg {
