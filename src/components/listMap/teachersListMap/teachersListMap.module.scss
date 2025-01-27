@@ -1,0 +1,32 @@
+.container {
+  margin-bottom: 10px;
+  padding: 10px 40px;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  color: var(--secondaryColor);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+.title svg {
+  margin-right: 10px;
+}
+.title svg path {
+  fill: var(--primaryColor);
+}
+
+.view {
+  cursor: pointer;
+  position: relative;
+}
+.view svg{
+  width: 25px;
+  height: 25px;
+}

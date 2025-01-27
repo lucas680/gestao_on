@@ -27,7 +27,7 @@ export default function Classes() {
   }, []);
 
   const onAddButton = () => {
-    router.push("/disciplines/add");
+    router.push("/classes/add");
   };
 
   return (
