@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function AddEditDisciplines() {
   const router = useRouter();
   const { id } = router.query;
-  const isEdit = id == 'add';
+  const isEdit = id != 'add';
 
   const [title, setTitle] = useState("");
   const [acronym, setAcronym] = useState("");
@@ -26,16 +26,16 @@ export default function AddEditDisciplines() {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h1>{isEdit ? 'Cadastro de' : 'Editar'} disciplina</h1>
+        <h1>{isEdit ? 'Editar' : 'Cadastro de'} disciplina</h1>
         <label>
-          Nome completo da disciplina<span>*</span>
+          Nome completo da disciplina:<span>*</span>
         </label>
         <Input value={title} onChange={(e) => setTitle(e)} />
         <label>
-          Sigla da disciplina<span>*</span>
+          Sigla da disciplina:<span>*</span>
         </label>
         <Input value={acronym} onChange={(e) => setAcronym(e)} />
-        <CustomButtom text="Atualizar" color="blue" onClick={onSubmit} />
+        <CustomButtom text={isEdit ? "Atualizar" : "Adicionar"} color="blue" onClick={onSubmit} />
       </div>
     </div>
   );

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./select.module.scss";
 import { ArrowBottomIcon, ArrowTopIcon } from "@/components/icons/icons";
 
+export interface IselectItem{
+  id: number;
+  value: string;
+}
+
 interface ISelect {
   isMultiple?: boolean;
-  valuesSelected: string[];
-  onChange: (values: string[]) => void;
-  itens: string[];
+  valuesSelected: IselectItem[];
+  onChange: (values: IselectItem[]) => void;
+  itens: IselectItem[];
   placeholder: string;
   isValid?: boolean;
   invalidMessage?: string;
@@ -15,10 +20,32 @@ interface ISelect {
 }
 
 export default function Select(props: ISelect) {
+  const selectRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (
+          selectRef.current &&
+          !selectRef.current.contains(event.target as Node)
+        ) {
+          setIsOpen(false);
+        }
+      };
+  
+      if (selectRef) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+  
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [selectRef]);
+
   return (
-    <div style={{ width: props.width }}>
+    <div style={{ width: props.width }} ref={selectRef}>
       <div
         className={`${styles.container} ${isOpen ? styles.open : ""} ${
           props.isValid == false && styles.invalid
@@ -29,12 +56,14 @@ export default function Select(props: ISelect) {
           className={styles.select}
           onClick={() => props.isMultiple && setIsOpen(!isOpen)}
         >
-          {props.valuesSelected.length == 0 || isOpen ? (
+          {props.valuesSelected.length == 0 ||
+          (props.valuesSelected.length == 1 && props.valuesSelected[0].value == "") ||
+          isOpen ? (
             <p>{props.placeholder}</p>
           ) : (
             <p>
               {props.valuesSelected.map((e, index) =>
-                index == props.valuesSelected.length - 1 ? e : `${e}, `
+                index == props.valuesSelected.length - 1 ? e.value : `${e.value}, `
               )}
             </p>
           )}
@@ -107,7 +136,7 @@ export default function Select(props: ISelect) {
                               className={styles.checkbox}
                             />
                           )}
-                          {item}
+                          {item.value}
                         </div>
                       );
                     })}
@@ -150,7 +179,7 @@ export default function Select(props: ISelect) {
                               className={styles.checkbox}
                             />
                           )}
-                          {item}
+                          {item.value}
                         </div>
                       );
                     })}
@@ -190,7 +219,7 @@ export default function Select(props: ISelect) {
                         className={styles.checkbox}
                       />
                     )}
-                    {item}
+                    {item.value}
                   </div>
                 );
               })

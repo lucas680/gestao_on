@@ -50,3 +50,13 @@ button:hover {
   margin-left: 280px;
   width: 100%;
 }
+
+.column {
+  display: flex;
+}
+.row {
+  width: 100%;
+}
+.divider{
+  width: 20px;
+}
