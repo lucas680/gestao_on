@@ -1,6 +1,7 @@
 import styles from "./customButtom.module.scss";
 
 export interface Ibutton {
+  disabled?: boolean;
   beforeIcon?: React.ReactNode;
   afterIcon?: React.ReactNode;
   text: string;
@@ -11,9 +12,12 @@ export interface Ibutton {
 export default function CustomButtom(props: Ibutton) {
   return (
     <button
+      disabled={props.disabled}
       className={`${styles.button} ${props.color == "red" && styles.colorRed} ${
         props.color == "blue" && styles.colorBlue
-      } ${props.color == "lightBlue" && styles.lightBlue}`}
+      } ${props.color == "lightBlue" && styles.lightBlue} ${
+        props.disabled && styles.disabled
+      }`}
       onClick={props.onClick}
     >
       {props.beforeIcon}

@@ -1,6 +1,6 @@
-.button svg{
-    width: 22px;
-    height: 22px;
+.button svg {
+  width: 22px;
+  height: 22px;
 }
 
 .button svg path {
@@ -12,17 +12,22 @@
 }
 
 .button.colorBlue {
-    background-color: var(--primaryColor);
-  }
+  background-color: var(--primaryColor);
+}
+
+.button.colorDarkBlue{
+  background-color: var(--primaryColorDark);
+}
 
 .button.colorRed svg path,
-.button.colorBlue svg path {
+.button.colorBlue svg path,
+.button.colorDarkBlue svg path {
   fill: var(--alertColor);
 }
 
-.isCircle{
-    border-radius: 100%;
-    width: 55px;
-    height: 40px;
-    padding: 0 !important;
+.isCircle {
+  border-radius: 100%;
+  width: 55px;
+  height: 40px;
+  padding: 0 !important;
 }

@@ -1,7 +1,7 @@
 import HeadComponent from "@/components/head/head";
 import styles from "./styles.module.scss";
 import InputSearch from "@/components/form/inputSearch/inputSearch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomButtom from "@/components/buttons/customButton/customButtom";
 import IconButton from "@/components/buttons/iconButton/iconButton";
 import { PeopleIcon } from "@/components/icons/icons";
@@ -11,6 +11,9 @@ import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
 import { alertSuccess, closeLoading, openLoading } from "@/utils/utils";
+import { Classe } from "@/models/classe";
+import { Teacher } from "@/models/teacher";
+import { Discipline } from "@/models/discipline";
 
 export default function Schedules() {
   const router = useRouter();
@@ -21,9 +24,9 @@ export default function Schedules() {
 
   const [schedules, setSchedules] = useState<Schedule[]>([]);
 
-  const generateReport = ()=>{
+  const generateReport = () => {
     openLoading();
-    setTimeout(()=>{
+    setTimeout(() => {
       setSchedules([
         new Schedule(1, "teste", new Date()),
         new Schedule(2, "testeeee 2", new Date()),
@@ -31,7 +34,41 @@ export default function Schedules() {
       closeLoading();
       alertSuccess("Horários criados com sucesso!");
     }, 6000);
-  }
+  };
+
+  const [classes, setClasses] = useState<Classe[]>([]);
+  const [teachers, setTeachers] = useState<Teacher[]>([]);
+
+  useEffect(() => {
+    getClasses();
+    getTeachers();
+  }, []);
+
+  const getClasses = () => {
+    setClasses([
+      new Classe(1, "8 Ano A", "Regular"),
+      new Classe(2, "8 Ano B", "Integral"),
+      new Classe(3, "7 Ano A", "Regular"),
+      new Classe(4, "7 Ano B", "Regular"),
+    ]);
+  };
+
+  const getTeachers = () => {
+    setTeachers([
+      new Teacher(
+        1,
+        "Carlos Antônio",
+        new Discipline(1, "Matemática"),
+        "Regular"
+      ),
+      new Teacher(
+        2,
+        "Maria Gadú Egral",
+        new Discipline(2, "Artes"),
+        "Integral"
+      ),
+    ]);
+  };
 
   return (
     <div>
@@ -43,9 +80,14 @@ export default function Schedules() {
             onChange={(e) => setSearch(e)}
             onSearch={onSearch}
           />
-          <CustomButtom text="Gerar horários" color="blue" onClick={generateReport} />
-          <IconButton
+          <CustomButtom
+            disabled={classes.length == 0 || teachers.length == 0}
+            text="Gerar horários"
             color="blue"
+            onClick={generateReport}
+          />
+          <IconButton
+            color="darkBlue"
             isCircle
             icon={<PeopleIcon />}
             onClick={() => {}}
@@ -61,8 +103,10 @@ export default function Schedules() {
               />
             ))}
           />
-        ) : (
+        ) : classes.length == 0 || teachers.length == 0 ? (
           <NoHasData description="Adicione todos os dados primeiro (turmas, disciplinas e professores)." />
+        ) : (
+          <NoHasData description="Clique em gerar horários para criar seus primeiros cronogramas." />
         )}
       </section>
     </div>

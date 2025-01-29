@@ -33,3 +33,8 @@
 .lightBlue svg path{
     fill: var(--primaryColor);
 }
+
+.disabled{
+    background-color: var(--primaryColorDark);
+    cursor: default;
+}
