@@ -15,12 +15,12 @@
     --searchBackground: #f6f6f6; //cor de fundo barra de pesquisa
     --searchTextColor: #93949A; //cor do icone e texto barra de pesquisa e input
 
-    --noHasDataIconBackground: #f3f3f3;
+    --noHasDataIconBackground: #f3f3f3; //cores da tela quando não há dados
     --noHasDataIconColor: #E8E8E8;
     --noHasWarningIconColor: #b3b4bb;
 
-    --tableIconColor: #b3b4bb;
-
-    --loadingColor1: hsla(198, 100%, 43%, 0.747);
+    --loadingColor1: hsla(198, 100%, 43%, 0.747); //cor da tela de carregamento
     --loadingColor2: hsla(198, 100%, 24%, 0.712);
+
+    --disabledBackgroundColor: rgba(0, 0, 0, 0.1); //cor de inputs e selects desativados
 }

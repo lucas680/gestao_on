@@ -1,0 +1,95 @@
+.container {
+  border: 1px solid var(--searchTextColor);
+  border-radius: 12px;
+  color: var(--searchTextColor);
+  font-size: 18px;
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.container.open {
+  overflow: initial;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.container.open .select {
+  padding-bottom: 0;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 40px;
+}
+
+.dropdown {
+  max-height: 0;
+  overflow-x: auto;
+  position: absolute;
+  background-color: var(--backgroundColor);
+  width: 100%;
+  top: 100%;
+  left: -1px;
+  z-index: 10;
+  transition: max-height 0.5s ease-in-out;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid var(--searchTextColor);
+  border-top: none;
+}
+
+.dropdown .item {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown .item:hover {
+  background-color: #f0f0f0;
+}
+
+.weekItem{
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.weekOpen{
+  max-height: 500px;
+}
+
+.container.open .dropdown {
+  max-height: 500px;
+}
+
+.container input{
+  margin-right: 10px;
+
+}
+
+.invalid {
+  border-color: var(--errorColor);
+}
+.invalid .dropdown {
+  border-color: var(--errorColor);
+}
+.invalidMessage {
+  margin: 0;
+  color: var(--errorColor);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.disabled{
+  background-color: var(--disabledBackgroundColor);
+}
+
+.columns{
+  display: flex;
+}
+.column{
+  width: 100%;
+}

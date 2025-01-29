@@ -76,8 +76,9 @@ export default function AddEditClasses() {
                 { id: 1, value: "Manhã" },
                 { id: 2, value: "Tarde" },
               ]}
-              valuesSelected={turn ? [turn] : []}
+              valuesSelected={type && type.value == "Integral" ? [type] : turn ? [turn] : []}
               onChange={(values) => setTurn(values[0])}
+              disabled={!(type && type.value == "Regular")}
             />
           </div>
         </div>

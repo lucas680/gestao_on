@@ -6,6 +6,7 @@ interface Iinput {
   onEnter?: () => void;
   isValid?: boolean;
   invalidMessage?: string;
+  disabled?: boolean;
   beforeIcon?: React.ReactNode;
   afterIcon?: React.ReactNode;
 }
@@ -16,12 +17,13 @@ export default function Input(props: Iinput) {
       <div
         className={`${styles.inputContainer} ${
           props.isValid == false && styles.invalidInput
-        }`}
+        } ${props.disabled && styles.disabled}`}
       >
         {props.beforeIcon && (
           <div className={styles.beforeIcon}>{props.beforeIcon}</div>
         )}
         <input
+          disabled={props.disabled}
           onChange={(e) => props.onChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && props.onEnter) {

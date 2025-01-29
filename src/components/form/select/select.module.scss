@@ -73,6 +73,10 @@
   font-weight: 500;
 }
 
+.disabled{
+  background-color: var(--disabledBackgroundColor);
+}
+
 .columns{
   display: flex;
 }

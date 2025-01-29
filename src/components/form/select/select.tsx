@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./select.module.scss";
 import { ArrowBottomIcon, ArrowTopIcon } from "@/components/icons/icons";
 
-export interface IselectItem{
+export interface IselectItem {
   id: number;
   value: string;
 }
 
 interface ISelect {
   isMultiple?: boolean;
+  disabled?: boolean;
   valuesSelected: IselectItem[];
   onChange: (values: IselectItem[]) => void;
   itens: IselectItem[];
@@ -24,46 +25,49 @@ export default function Select(props: ISelect) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          selectRef.current &&
-          !selectRef.current.contains(event.target as Node)
-        ) {
-          setIsOpen(false);
-        }
-      };
-  
-      if (selectRef) {
-        document.addEventListener("mousedown", handleClickOutside);
-      } else {
-        document.removeEventListener("mousedown", handleClickOutside);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
-  
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [selectRef]);
+    };
+
+    if (selectRef) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectRef]);
 
   return (
     <div style={{ width: props.width }} ref={selectRef}>
       <div
         className={`${styles.container} ${isOpen ? styles.open : ""} ${
           props.isValid == false && styles.invalid
-        }`}
-        onClick={() => !props.isMultiple && setIsOpen(!isOpen)}
+        } ${props.disabled && styles.disabled}`}
+        onClick={() => !props.isMultiple && !props.disabled && setIsOpen(!isOpen)}
       >
         <div
           className={styles.select}
-          onClick={() => props.isMultiple && setIsOpen(!isOpen)}
+          onClick={() => props.isMultiple && !props.disabled && setIsOpen(!isOpen)}
         >
           {props.valuesSelected.length == 0 ||
-          (props.valuesSelected.length == 1 && props.valuesSelected[0].value == "") ||
+          (props.valuesSelected.length == 1 &&
+            props.valuesSelected[0].value == "") ||
           isOpen ? (
             <p>{props.placeholder}</p>
           ) : (
             <p>
               {props.valuesSelected.map((e, index) =>
-                index == props.valuesSelected.length - 1 ? e.value : `${e.value}, `
+                index == props.valuesSelected.length - 1
+                  ? e.value
+                  : `${e.value}, `
               )}
             </p>
           )}
@@ -72,16 +76,12 @@ export default function Select(props: ISelect) {
         <div className={styles.dropdown}>
           {props.isMultiple && (
             <div
-              className={`${styles.item} ${
-                props.valuesSelected.length == props.itens.length
-                  ? styles.selected
-                  : ""
-              }`}
+              className={`${styles.item}`}
               onClick={() => {
                 if (props.valuesSelected.length == props.itens.length) {
                   props.onChange([]);
                 } else {
-                  props.onChange([...props.itens]);
+                  props.onChange(props.itens);
                 }
               }}
             >
@@ -104,20 +104,20 @@ export default function Select(props: ISelect) {
                   {props.itens
                     .slice(0, Math.ceil(props.itens.length / 2))
                     .map((item, index) => {
-                      const isSelected = props.valuesSelected.includes(item);
+                      const isSelected = props.valuesSelected.some(
+                        (selected) => selected.id === item.id
+                      );
 
                       return (
                         <div
                           key={`col1-${index}`}
-                          className={`${styles.item} ${
-                            isSelected ? styles.selected : ""
-                          }`}
+                          className={`${styles.item}`}
                           onClick={() => {
                             if (props.isMultiple) {
                               if (isSelected) {
                                 props.onChange(
                                   props.valuesSelected.filter(
-                                    (value) => value !== item
+                                    (value) => value.id !== item.id
                                   )
                                 );
                               } else {
@@ -147,20 +147,20 @@ export default function Select(props: ISelect) {
                   {props.itens
                     .slice(Math.ceil(props.itens.length / 2))
                     .map((item, index) => {
-                      const isSelected = props.valuesSelected.includes(item);
+                      const isSelected = props.valuesSelected.some(
+                        (selected) => selected.id === item.id
+                      );
 
                       return (
                         <div
                           key={`col2-${index}`}
-                          className={`${styles.item} ${
-                            isSelected ? styles.selected : ""
-                          }`}
+                          className={`${styles.item}`}
                           onClick={() => {
                             if (props.isMultiple) {
                               if (isSelected) {
                                 props.onChange(
                                   props.valuesSelected.filter(
-                                    (value) => value !== item
+                                    (value) => value.id !== item.id
                                   )
                                 );
                               } else {
@@ -187,8 +187,9 @@ export default function Select(props: ISelect) {
               </div>
             ) : (
               props.itens.map((item, index) => {
-                const isSelected = props.valuesSelected.includes(item);
-
+                const isSelected = props.valuesSelected.some(
+                  (selected) => selected.id === item.id
+                );
                 return (
                   <div
                     key={index}
@@ -200,7 +201,7 @@ export default function Select(props: ISelect) {
                         if (isSelected) {
                           props.onChange(
                             props.valuesSelected.filter(
-                              (value) => value !== item
+                              (value) => value.id !== item.id
                             )
                           );
                         } else {
