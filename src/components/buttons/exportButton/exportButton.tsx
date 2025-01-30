@@ -49,11 +49,12 @@ export default function ExportButton(props: Iexport) {
         height: resizedHeight,
       });
 
-      const pdfBytes = await pdfDoc.saveAsBase64({ dataUri: true });
-      const link = document.createElement("a");
-      link.href = pdfBytes;
-      link.download = "testeeee_Dashboard.pdf";
-      link.click();
+      const pdfBytes = await pdfDoc.save();
+      const pdfBlob = new Blob([pdfBytes], { type: "application/pdf" });
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+
+      // Abre o PDF em uma nova aba
+      window.open(pdfUrl, "_blank");
 
       window.dispatchEvent(new Event("resize"));
 
