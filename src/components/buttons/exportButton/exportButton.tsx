@@ -1,10 +1,11 @@
+import { ExportIcon } from "@/components/icons/icons";
 import { closeLoading, openLoading } from "@/utils/utils";
 import html2canvas from "html2canvas";
 import { PageSizes, PDFDocument } from "pdf-lib";
 import { RefObject } from "react";
+import styles from "./exportButton.module.scss";
 
 interface Iexport {
-  text: string;
   beforeExport?: () => void;
   afterExport?: () => void;
   ref: RefObject<null>;
@@ -64,5 +65,11 @@ export default function ExportButton(props: Iexport) {
     }, 3000);
   };
 
-  return <button onClick={onExport}>{props.text}</button>;
+  return (
+    <div className={styles.container}>
+      <button className={styles.button} onClick={onExport}>
+        <ExportIcon /> Exportar
+      </button>
+    </div>
+  );
 }

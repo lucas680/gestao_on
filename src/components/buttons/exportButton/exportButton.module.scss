@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button{
+    background-color: var(--primaryColor);
+    color: var(--alertColor);
+}
+
+.button svg{
+    margin-right: 5px;
+}
+.button svg path{
+    fill: var(--alertColor);
+}

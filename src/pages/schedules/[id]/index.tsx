@@ -13,7 +13,7 @@ export default function SchedulesIndex() {
     <div>
       <HeadComponent />
       <section className={styles.container}>
-        <ExportButton ref={exportRef} text="exportaarrr" />
+        <ExportButton ref={exportRef} />
         <div ref={exportRef}>
           <h4>okok index {id}</h4>
           <br />
