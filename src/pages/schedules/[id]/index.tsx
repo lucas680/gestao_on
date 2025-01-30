@@ -19,14 +19,12 @@ export default function SchedulesIndex() {
   }, []);
 
   const getScheduleById = async () => {
-    try {
-      const res = await ScheduleService.getScheculeById(
-        id as unknown as number
-      );
-      setSchedule(res);
-    } catch {
+    if (!id || Array.isArray(id) || isNaN(Number(id))) {
       router.push("/schedules");
+      return;
     }
+    const res = await ScheduleService.getScheculeById(Number(id));
+    setSchedule(res);
   };
 
   // useEffect(() => {

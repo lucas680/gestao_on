@@ -1,5 +1,6 @@
 import { Discipline } from "@/models/discipline";
 import { Schedule } from "@/models/schedule";
+import { ScheduleTime } from "@/models/scheduleTime";
 import { HttpMethod, httpRequest } from "@/utils/httpRequest";
 import { closeLoading, openLoading } from "@/utils/utils";
 
@@ -22,11 +23,12 @@ export class ScheduleService {
         resolve(
           new Schedule(
             id,
-            "Turma 8° Ano A",
+            "testeee",
             new Date(),
-            "8° Ano A - Integral",
+            "8° Ano A",
             "Ricardo",
-            new Discipline(1, "Matemática")
+            new Discipline(1, "Matemática"),
+            new ScheduleTime(0, "Segunda", 1, "07:00 às 07:55")
           )
         );
       }, 3000); // Simula um atraso de 1 segundo

@@ -14,6 +14,7 @@ import { alertSuccess, closeLoading, openLoading } from "@/utils/utils";
 import { Classe } from "@/models/classe";
 import { Teacher } from "@/models/teacher";
 import { Discipline } from "@/models/discipline";
+import { ScheduleTime } from "@/models/scheduleTime";
 
 export default function Schedules() {
   const router = useRouter();
@@ -45,15 +46,17 @@ export default function Schedules() {
         new Date(),
         "8° Ano A",
         "Ricardo",
-        new Discipline(1, "Matemática")
+        new Discipline(1, "Matemática"),
+        new ScheduleTime(0, "Segunda", 1, "07:00 às 07:55")
       ),
       new Schedule(
-        2,
-        "testeeee2",
+        1,
+        "testeee",
         new Date(),
         "8° Ano A",
         "Ricardo",
-        new Discipline(1, "Matemática")
+        new Discipline(1, "Matemática"),
+        new ScheduleTime(0, "Segunda", 1, "07:00 às 07:55")
       ),
     ]);
   }, []);

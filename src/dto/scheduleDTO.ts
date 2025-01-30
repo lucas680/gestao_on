@@ -1,5 +1,6 @@
 import { Classe } from "@/models/classe";
 import { Discipline } from "@/models/discipline";
+import { ScheduleTime } from "@/models/scheduleTime";
 import { Teacher } from "@/models/teacher";
 
 export class ScheduleDTO {
@@ -9,6 +10,7 @@ export class ScheduleDTO {
   public classe: Classe;
   public teacher: Teacher;
   public discipline: Discipline;
+  public scheduleTime: ScheduleTime;
 
   constructor(
     id: number,
@@ -17,6 +19,7 @@ export class ScheduleDTO {
     classe: Classe,
     teacher: Teacher,
     discipline: Discipline,
+    scheduleTime: ScheduleTime
   ) {
     this.id = id;
     this.title = title;
@@ -24,5 +27,6 @@ export class ScheduleDTO {
     this.classe = classe;
     this.teacher = teacher;
     this.discipline = discipline;
+    this.scheduleTime = scheduleTime;
   }
 }

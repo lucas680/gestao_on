@@ -1,5 +1,6 @@
 import { ScheduleDTO } from "@/dto/scheduleDTO";
 import { Discipline } from "./discipline";
+import { ScheduleTime } from "./scheduleTime";
 
 export class Schedule {
   id: number;
@@ -8,6 +9,7 @@ export class Schedule {
   teacherName: string;
   classeName: string;
   discipline: Discipline;
+  scheduleTime: ScheduleTime;
 
   constructor(
     id: number,
@@ -16,6 +18,7 @@ export class Schedule {
     classeName: string,
     teacherName: string,
     discipline: Discipline,
+    scheduleTime: ScheduleTime
   ) {
     this.id = id;
     this.title = title;
@@ -23,6 +26,7 @@ export class Schedule {
     this.classeName = classeName;
     this.teacherName = teacherName;
     this.discipline = discipline;
+    this.scheduleTime = scheduleTime;
   }
 
   static fromDTO(dto: ScheduleDTO): Schedule {
@@ -32,7 +36,8 @@ export class Schedule {
       new Date(dto.creationDate),
       dto.classe.title,
       dto.teacher.name,
-      dto.discipline
+      dto.discipline,
+      dto.scheduleTime
     );
   }
 
