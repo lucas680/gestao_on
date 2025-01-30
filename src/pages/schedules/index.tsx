@@ -27,10 +27,6 @@ export default function Schedules() {
   const generateReport = () => {
     openLoading();
     setTimeout(() => {
-      setSchedules([
-        new Schedule(1, "teste", new Date()),
-        new Schedule(2, "testeeee 2", new Date()),
-      ]);
       closeLoading();
       alertSuccess("Horários criados com sucesso!");
     }, 6000);
@@ -42,6 +38,24 @@ export default function Schedules() {
   useEffect(() => {
     getClasses();
     getTeachers();
+    setSchedules([
+      new Schedule(
+        1,
+        "testeee",
+        new Date(),
+        "8° Ano A",
+        "Ricardo",
+        new Discipline(1, "Matemática")
+      ),
+      new Schedule(
+        2,
+        "testeeee2",
+        new Date(),
+        "8° Ano A",
+        "Ricardo",
+        new Discipline(1, "Matemática")
+      ),
+    ]);
   }, []);
 
   const getClasses = () => {
@@ -58,13 +72,13 @@ export default function Schedules() {
       new Teacher(
         1,
         "Carlos Antônio",
-        new Discipline(1, "Matemática"),
+        [new Discipline(1, "Matemática")],
         "Regular"
       ),
       new Teacher(
         2,
         "Maria Gadú Egral",
-        new Discipline(2, "Artes"),
+        [new Discipline(2, "Artes"), new Discipline(3, "Inglês")],
         "Integral"
       ),
     ]);

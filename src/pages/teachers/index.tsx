@@ -32,13 +32,13 @@ export default function Teachers() {
       new Teacher(
         1,
         "Carlos Antônio",
-        new Discipline(1, "Matemática"),
+        [new Discipline(1, "Matemática")],
         "Regular"
       ),
       new Teacher(
         2,
         "Maria Gadú Egral",
-        new Discipline(2, "Artes"),
+        [new Discipline(2, "Artes"), new Discipline(3, "Inglês")],
         "Integral"
       ),
     ]);

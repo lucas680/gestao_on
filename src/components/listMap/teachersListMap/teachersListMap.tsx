@@ -15,31 +15,31 @@ interface Imap {
 export default function TeachersListMap(props: Imap) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   const handleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          dropdownRef.current &&
-          !dropdownRef.current.contains(event.target as Node)
-        ) {
-          setIsDropdownOpen(false);
-        }
-      };
-  
-      if (isDropdownOpen) {
-        document.addEventListener("mousedown", handleClickOutside);
-      } else {
-        document.removeEventListener("mousedown", handleClickOutside);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
       }
-  
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [isDropdownOpen]);
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <div className={styles.container}>
@@ -47,7 +47,11 @@ export default function TeachersListMap(props: Imap) {
         <PeopleIcon />
         <p>{props.item.name}</p>
       </div>
-      <p>{props.item.discipline.title}</p>
+      <p>
+        {props.item.disciplines.map((e, index) =>
+          index < props.item.disciplines.length-1 ? `${e.title}, ` : e.title
+        )}
+      </p>
       <p>{props.item.turn}</p>
       <div className={styles.view} onClick={handleDropdown} ref={dropdownRef}>
         <MoreIcon />

@@ -14,7 +14,7 @@ export default function AddEditClasses() {
   const [title, setTitle] = useState<string>("");
   const [type, setType] = useState<IselectItem>();
   const [turn, setTurn] = useState<IselectItem>();
-  const [discipline, setDiscipline] = useState<IselectItem>();
+  const [disciplinesSelected, setDisciplinesSelected] = useState<IselectItem[]>();
 
   const onSubmit = () => {
     //
@@ -87,11 +87,13 @@ export default function AddEditClasses() {
         </label>
         <Select
           placeholder="--selecione--"
+          isMultiple
+          twoColumns
           itens={disciplines.map((i) => {
             return { id: i.id, value: i.title };
           })}
-          valuesSelected={discipline ? [discipline] : []}
-          onChange={(values) => setDiscipline(values[0])}
+          valuesSelected={disciplinesSelected ?? []}
+          onChange={(values) => setDisciplinesSelected(values)}
         />
         <CustomButtom text={isEdit ? "Atualizar" : "Adicionar"} color="blue" onClick={onSubmit} />
       </div>
