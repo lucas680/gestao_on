@@ -39,12 +39,12 @@ export default function SchedulesIndex() {
       <HeadComponent />
       <section className={styles.container}>
         <ExportButton ref={exportRef} />
-        <div ref={exportRef}>
+        <div ref={exportRef} className={styles.schedule}>
           {schedule && (
-            <div className={styles.schedule}>
+            <>
               <h1>{schedule.classeName}</h1>
               <ScheduleTable schedule={schedule} />
-            </div>
+            </>
           )}
         </div>
       </section>
