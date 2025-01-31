@@ -1,0 +1,93 @@
+.container {
+  margin: 20px auto;
+  overflow-x: auto;
+  border: 1px solid var(--tableBorderColor);
+  border-radius: 12px;
+  overflow: hidden;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+
+    thead {
+      color: var(--tableHeaderTextColor);
+
+      th {
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+
+    tbody {
+      tr {
+        color: var(--tableHeaderTextColor);
+
+        td {
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+
+          &:nth-child(2) {
+            font-weight: initial;
+          }
+        }
+      }
+    }
+
+    td,
+    th {
+      border: 1px solid var(--tableBorderColor);
+    }
+
+    /* Remove bordas externas das células para evitar bordas duplas */
+    tr:first-child th {
+      border-top: none;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    td:first-child,
+    th:first-child {
+      border-left: none;
+    }
+    td:last-child,
+    th:last-child {
+      border-right: none;
+    }
+
+    // Lanche e Almoço
+    .break {
+      background-color: var(--tablePrimaryColor);
+      color: var(--tableTextColor);
+      font-weight: bold;
+      text-transform: uppercase;
+      td {
+        text-align: center;
+      }
+    }
+
+    // Horários específicos com cores personalizadas
+    .math {
+      background-color: #ff4099;
+    }
+
+    .history {
+      background-color: #ff0004;
+    }
+
+    .portuguese {
+      background-color: #fff240;
+    }
+
+    .english {
+      background-color: #ff0004;
+    }
+
+    .science {
+      background-color: #74d5ff;
+    }
+  }
+}

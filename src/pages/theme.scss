@@ -25,5 +25,9 @@
 
     --disabledBackgroundColor: rgba(0, 0, 0, 0.1); //cor de inputs e selects desativados
 
-    --tableTitleColor: #464646;
+    --tableTitleColor: #464646; //cor do titulo fora da tabela
+    --tableBorderColor: black; //cor das bordas
+    --tableHeaderTextColor: black; //cor do cabeçalho
+    --tablePrimaryColor: #0070A0; //cor das refeições
+    --tableTextColor: white; //cor do texto das refeições
 }
