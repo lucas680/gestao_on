@@ -65,7 +65,7 @@
       font-weight: bold;
       text-transform: uppercase;
       td {
-        text-align: center;
+        text-align: start;
       }
     }
 
@@ -75,15 +75,27 @@
     }
 
     .port {
-      background-color: #ff0004;
+      background-color: #FFF240;
     }
 
-    .art {
-      background-color: #fff240;
+    .ing, .his {
+      background-color: #FF0004;
     }
 
-    .cie {
-      background-color: #74d5ff;
+    .geo {
+      background-color: #00FF8C;
+    }
+
+    .cie, .er{
+      background-color: #74D5FF;
+    }
+
+    .art, .edf{
+      background-color: #EC40FF;
+    }
+
+    .red{
+      background-color: #FFB340;
     }
   }
 }
