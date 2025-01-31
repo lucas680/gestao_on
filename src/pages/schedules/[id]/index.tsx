@@ -43,7 +43,7 @@ export default function SchedulesIndex() {
           {schedule && (
             <div className={styles.schedule}>
               <h1>{schedule.classeName}</h1>
-              <ScheduleTable />
+              <ScheduleTable schedule={schedule} />
             </div>
           )}
         </div>

@@ -9,6 +9,7 @@ interface Iinput {
   disabled?: boolean;
   beforeIcon?: React.ReactNode;
   afterIcon?: React.ReactNode;
+  max?: number;
 }
 
 export default function Input(props: Iinput) {
@@ -23,7 +24,9 @@ export default function Input(props: Iinput) {
           <div className={styles.beforeIcon}>{props.beforeIcon}</div>
         )}
         <input
+          value={props.value}
           disabled={props.disabled}
+          maxLength={props.max}
           onChange={(e) => props.onChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && props.onEnter) {

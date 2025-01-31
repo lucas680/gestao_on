@@ -32,13 +32,13 @@ export default function Teachers() {
       new Teacher(
         1,
         "Carlos Antônio",
-        [new Discipline(1, "Matemática")],
+        [new Discipline(1, "Matemática", "mat")],
         "Regular"
       ),
       new Teacher(
         2,
         "Maria Gadú Egral",
-        [new Discipline(2, "Artes"), new Discipline(3, "Inglês")],
+        [new Discipline(2, "Artes", "art"), new Discipline(3, "Inglês", "ing")],
         "Integral"
       ),
     ]);
@@ -46,7 +46,7 @@ export default function Teachers() {
 
   const getDisciplines = () => {
     setDisciplines([
-      new Discipline(1, "Matemática"),
+      new Discipline(1, "Matemática", "mat"),
     ]);
   };
 

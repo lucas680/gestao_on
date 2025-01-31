@@ -29,10 +29,10 @@ export default function AddEditTeacher() {
 
   const getDisciplines = () => {
     setDisciplines([
-      new Discipline(1, "Matemática"),
-      new Discipline(2, "Português"),
-      new Discipline(3, "Gerografia"),
-      new Discipline(4, "Artes"),
+      new Discipline(1, "Matemática", "mat"),
+      new Discipline(2, "Português", "Port"),
+      new Discipline(3, "Gerografia", "GEO"),
+      new Discipline(4, "Artes", "art"),
     ]);
   };
 

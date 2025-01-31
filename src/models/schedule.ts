@@ -1,32 +1,25 @@
 import { ScheduleDTO } from "@/dto/scheduleDTO";
-import { Discipline } from "./discipline";
-import { ScheduleTime } from "./scheduleTime";
+import { ScheduleCell } from "./scheduleCell";
 
 export class Schedule {
   id: number;
   title: string;
   creationDate: Date;
-  teacherName: string;
   classeName: string;
-  discipline: Discipline;
-  scheduleTime: ScheduleTime;
+  scheduleCells: ScheduleCell[];
 
   constructor(
     id: number,
     title: string,
     creationDate: Date,
     classeName: string,
-    teacherName: string,
-    discipline: Discipline,
-    scheduleTime: ScheduleTime
+    scheduleCells: ScheduleCell[],
   ) {
     this.id = id;
     this.title = title;
     this.creationDate = creationDate;
     this.classeName = classeName;
-    this.teacherName = teacherName;
-    this.discipline = discipline;
-    this.scheduleTime = scheduleTime;
+    this.scheduleCells = scheduleCells
   }
 
   static fromDTO(dto: ScheduleDTO): Schedule {
@@ -35,9 +28,7 @@ export class Schedule {
       dto.title,
       new Date(dto.creationDate),
       dto.classe.title,
-      dto.teacher.name,
-      dto.discipline,
-      dto.scheduleTime
+      dto.scheduleCells,
     );
   }
 

@@ -1,18 +1,15 @@
 export class ScheduleTime {
   id: number;
-  day: string;
+  day: "Segunda" | "Terça" | "Quarta" | "Quinta" | "Sexta";
   classNumber: number;
-  time: string;
 
   constructor(
     id: number,
-    day: string,
-    classNumber: number,
-    time: string
+    day: "Segunda" | "Terça" | "Quarta" | "Quinta" | "Sexta",
+    classNumber: number
   ) {
     this.id = id;
     this.day = day;
     this.classNumber = classNumber;
-    this.time = time;
   }
 }

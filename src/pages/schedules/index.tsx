@@ -15,6 +15,7 @@ import { Classe } from "@/models/classe";
 import { Teacher } from "@/models/teacher";
 import { Discipline } from "@/models/discipline";
 import { ScheduleTime } from "@/models/scheduleTime";
+import { ScheduleCell } from "@/models/scheduleCell";
 
 export default function Schedules() {
   const router = useRouter();
@@ -40,24 +41,22 @@ export default function Schedules() {
     getClasses();
     getTeachers();
     setSchedules([
-      new Schedule(
-        1,
-        "testeee",
-        new Date(),
-        "8° Ano A",
-        "Ricardo",
-        new Discipline(1, "Matemática"),
-        new ScheduleTime(0, "Segunda", 1, "07:00 às 07:55")
-      ),
-      new Schedule(
-        1,
-        "testeee",
-        new Date(),
-        "8° Ano A",
-        "Ricardo",
-        new Discipline(1, "Matemática"),
-        new ScheduleTime(0, "Segunda", 1, "07:00 às 07:55")
-      ),
+      new Schedule(1, "Turma 8° Ano A", new Date(), "8° Ano A", [
+        new ScheduleCell(
+          1,
+          "João",
+          new Discipline(1, "Matemática", "mat"),
+          new ScheduleTime(1, "Segunda", 2)
+        ),
+      ]),
+      new Schedule(2, "Turma 8° Ano B", new Date(), "8° Ano A", [
+        new ScheduleCell(
+          1,
+          "João",
+          new Discipline(1, "Matemática", "mat"),
+          new ScheduleTime(1, "Segunda", 2)
+        ),
+      ]),
     ]);
   }, []);
 
@@ -75,13 +74,13 @@ export default function Schedules() {
       new Teacher(
         1,
         "Carlos Antônio",
-        [new Discipline(1, "Matemática")],
+        [new Discipline(1, "Matemática", "mat")],
         "Regular"
       ),
       new Teacher(
         2,
         "Maria Gadú Egral",
-        [new Discipline(2, "Artes"), new Discipline(3, "Inglês")],
+        [new Discipline(2, "Artes", "art"), new Discipline(3, "Inglês", "ing")],
         "Integral"
       ),
     ]);
