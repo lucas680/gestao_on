@@ -45,6 +45,11 @@ function createAlert(type: "success" | "error", message: string) {
   );
 
   alertsQueue.push(alertElement);
+
+  setTimeout(() => {
+    root.unmount();
+    handleClose(alertElement);
+  }, 5000);
 }
 
 export function alertSuccess(message: string) {

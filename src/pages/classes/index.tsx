@@ -2,7 +2,7 @@ import HeadComponent from "@/components/head/head";
 import styles from "./styles.module.scss";
 import InputSearch from "@/components/form/inputSearch/inputSearch";
 import { useEffect, useState } from "react";
-import { AddIcon } from "@/components/icons/icons";
+import { AddIcon, ArrowRightIcon } from "@/components/icons/icons";
 import NoHasData from "@/components/noHasData/noHasData";
 import ListMapContent from "@/components/listMap/listMapContent/listMapContent";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ import FloatButton from "@/components/buttons/floatButton/floatButton";
 import { Classe } from "@/models/classe";
 import ClassesListMap from "@/components/listMap/classesListMap/classesListMap";
 import { alertSuccess } from "../../utils/utils";
+import { Discipline } from "@/models/discipline";
 
 export default function Classes() {
   const router = useRouter();
@@ -18,9 +19,11 @@ export default function Classes() {
     //
   };
 
+  const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [classes, setClasses] = useState<Classe[]>([]);
 
   useEffect(() => {
+    getDisciplines();
     getClasses();
   }, []);
 
@@ -33,17 +36,25 @@ export default function Classes() {
     ]);
   };
 
+  const getDisciplines = () => {
+    setDisciplines([new Discipline(1, "Matemática", "mat")]);
+  };
+
   const onRemove = (id: number) => {
     setClasses(classes.filter((e) => e.id != id));
     alertSuccess(`Turma removida com sucesso! id: ${id}`);
   };
 
   const onEdit = (id: number) => {
-    router.push(`/classes/${id}`)
+    router.push(`/classes/${id}`);
   };
 
   const onAddButton = () => {
     router.push("/classes/add");
+  };
+
+  const onAddButtonDisciplines = () => {
+    router.push("/disciplines/add");
   };
 
   return (
@@ -73,7 +84,7 @@ export default function Classes() {
               />
             </div>
           </div>
-        ) : (
+        ) : disciplines.length > 0 ? (
           <NoHasData
             description="Nenhuma turma cadastrada no sistema"
             button={{
@@ -81,6 +92,17 @@ export default function Classes() {
               color: "blue",
               beforeIcon: <AddIcon />,
               onClick: onAddButton,
+            }}
+          />
+        ) : (
+          <NoHasData
+            description="Não há disciplinas cadastradas no sistema. Cadastre ao menos uma disciplina para prosseguir."
+            iconAlert
+            button={{
+              text: "Cadastrar disciplinas",
+              color: "lightBlue",
+              afterIcon: <ArrowRightIcon />,
+              onClick: onAddButtonDisciplines,
             }}
           />
         )}
