@@ -23,7 +23,8 @@ export default function ScheduleTable(props: Itable) {
     // Em caso de empate, compara pelos dias da semana usando o mapeamento
     return dayOrder[a.scheduleTime.day] - dayOrder[b.scheduleTime.day];
   });
-  console.log(props.schedule);
+
+  const colorMap: Record<string, string> = {};
 
   return (
     <div className={styles.container}>
@@ -52,22 +53,35 @@ export default function ScheduleTable(props: Itable) {
                 const cell = cellsForClass.find(
                   (item) => item.scheduleTime.day === day
                 );
-                return cell ? (
-                  <td
-                    key={day}
-                    className={styles[cell.discipline.acronym.toLowerCase()]}
-                  >
-                    {cell.teacherName} - {cell.discipline.acronym.toUpperCase()}
-                  </td>
-                ) : (
-                  <td key={day}></td> // Célula vazia se não houver dado
-                );
+
+                if (cell) {
+                  // Verifica se já tem uma cor associada
+                  if (!colorMap[cell.discipline.acronym]) {
+                    colorMap[cell.discipline.acronym] = getRandomColor();
+                  }
+
+                  const color = colorMap[cell.discipline.acronym];
+
+                  return (
+                    <td
+                      key={day}
+                      style={{
+                        backgroundColor: color,
+                      }}
+                    >
+                      {cell.teacherName} -{" "}
+                      {cell.discipline.acronym.toUpperCase()}
+                    </td>
+                  );
+                } else {
+                  return <td key={day}></td>; // Célula vazia se não houver dado
+                }
               }
             );
 
             // Horário de lanche para aulas
-            const isBreak = classNumber+1 === 2 || classNumber+1 === 7;
-            const isLunch = classNumber+1 === 5;
+            const isBreak = classNumber + 1 === 2 || classNumber + 1 === 7;
+            const isLunch = classNumber + 1 === 5;
 
             // Retorna a linha do horário e, se for um intervalo, inclui o `<tr>` do lanche
             return [
@@ -108,4 +122,12 @@ function getTimeForClass(classNumber: number): string {
     "16:50 às 17:40",
   ];
   return times[classNumber - 1] || "";
+}
+
+function getRandomColor(): string {
+  const getLightValue = () => Math.floor(Math.random() * 106) + 150;
+  const r = getLightValue();
+  const g = getLightValue();
+  const b = getLightValue();
+  return `rgb(${r}, ${g}, ${b})`;
 }

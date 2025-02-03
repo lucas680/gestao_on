@@ -27,12 +27,8 @@ export default function SchedulesIndex() {
     setSchedule(res);
   };
 
-  // useEffect(() => {
-  //   if (!id) {
-  //     router.push("/schedules");
-  //   }
-  // }, [id, router]);
-  // if (!id) return null;
+
+  if (!id) return null;
 
   return (
     <div>

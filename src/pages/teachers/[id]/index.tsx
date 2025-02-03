@@ -50,7 +50,7 @@ export default function AddEditTeacher() {
         <label>
           Nome:<span>*</span>
         </label>
-        <Input value={name} onChange={(e) => setName(e)} />
+        <Input max={15} value={name} onChange={(e) => setName(e)} />
         <label>
           Disciplinas:<span>*</span>
         </label>
