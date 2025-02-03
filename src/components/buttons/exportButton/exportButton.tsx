@@ -2,8 +2,10 @@ import { ExportIcon } from "@/components/icons/icons";
 import { closeLoading, openLoading } from "@/utils/utils";
 import html2canvas from "html2canvas";
 import { PageSizes, PDFDocument } from "pdf-lib";
-import { RefObject } from "react";
+import { RefObject, useState } from "react";
 import styles from "./exportButton.module.scss";
+import Confirm from "@/components/informs/confirm/confirm";
+import { useRouter } from "next/router";
 
 interface Iexport {
   beforeExport?: () => void;
@@ -12,6 +14,7 @@ interface Iexport {
 }
 
 export default function ExportButton(props: Iexport) {
+  const router = useRouter();
   const onExport = () => {
     openLoading();
     if (props.beforeExport) props.beforeExport();
@@ -65,9 +68,25 @@ export default function ExportButton(props: Iexport) {
     }, 3000);
   };
 
+  const [confirmOpen, setConfirmOpen] = useState(false);
+
   return (
     <div className={styles.container}>
-      <button className={styles.button} onClick={onExport}>
+      <Confirm
+        open={confirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        text="Você não cadastrou informações importantes!"
+        fineText="(nome do coordenador(a), logo e nome da escola)"
+        buttonColor="blue"
+        cancelButtonText="Cadastrar"
+        onCancelButtonAction={() => router.push("/coordinator")}
+        buttonText="Continuar"
+        action={()=>{
+          onExport();
+          setConfirmOpen(false);
+        }}
+      />
+      <button className={styles.button} onClick={()=> setConfirmOpen(true)}>
         <ExportIcon /> Exportar
       </button>
     </div>

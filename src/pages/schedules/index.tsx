@@ -106,7 +106,7 @@ export default function Schedules() {
             color="darkBlue"
             isCircle
             icon={<PeopleIcon />}
-            onClick={() => {}}
+            onClick={() => router.push("/coordinator")}
           />
         </div>
         {schedules.length > 0 ? (
