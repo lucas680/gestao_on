@@ -38,26 +38,30 @@ export default function Schedules() {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
 
   useEffect(() => {
-    getClasses();
-    getTeachers();
-    setSchedules([
-      new Schedule(1, "Turma 8° Ano A", new Date(), "8° Ano A", [
-        new ScheduleCell(
-          1,
-          "João",
-          new Discipline(1, "Matemática", "mat"),
-          new ScheduleTime(1, "Segunda", 2)
-        ),
-      ]),
-      new Schedule(2, "Turma 8° Ano B", new Date(), "8° Ano A", [
-        new ScheduleCell(
-          1,
-          "João",
-          new Discipline(1, "Matemática", "mat"),
-          new ScheduleTime(1, "Segunda", 2)
-        ),
-      ]),
-    ]);
+    openLoading();
+    setTimeout(() => {
+      getClasses();
+      getTeachers();
+      setSchedules([
+        new Schedule(1, "Turma 8° Ano A", new Date(), "8° Ano A", [
+          new ScheduleCell(
+            1,
+            "João",
+            new Discipline(1, "Matemática", "mat"),
+            new ScheduleTime(1, "Segunda", 2)
+          ),
+        ]),
+        new Schedule(2, "Turma 8° Ano B", new Date(), "8° Ano A", [
+          new ScheduleCell(
+            1,
+            "João",
+            new Discipline(1, "Matemática", "mat"),
+            new ScheduleTime(1, "Segunda", 2)
+          ),
+        ]),
+      ]);
+      closeLoading();
+    }, 2000);
   }, []);
 
   const getClasses = () => {
@@ -89,7 +93,7 @@ export default function Schedules() {
   return (
     <div>
       <HeadComponent />
-      <section className={styles.container}>
+      <section id="loading-section-content" className={styles.container}>
         <div className={styles.schedulesHeader}>
           <InputSearch
             value={search}
