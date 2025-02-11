@@ -11,6 +11,8 @@ export default function AddEditDisciplines() {
 
   const [title, setTitle] = useState("");
   const [acronym, setAcronym] = useState("");
+  const [workload, setWorkload] = useState<number>();
+  const [isWorkloadValid, setIsWorkloadValid] = useState(true);
 
   const onSubmit = () => {
     //
@@ -31,10 +33,40 @@ export default function AddEditDisciplines() {
           Nome completo da disciplina:<span>*</span>
         </label>
         <Input value={title} onChange={(e) => setTitle(e)} />
-        <label>
-          Sigla da disciplina:<span>*</span>
-        </label>
-        <Input value={acronym} onChange={(e) => setAcronym(e.toUpperCase())} max={4} />
+        <div className="column">
+          <div className="row">
+            <label>
+              Sigla da disciplina:<span>*</span>
+            </label>
+            <Input
+              value={acronym}
+              onChange={(e) => setAcronym(e)}
+              max={4}
+            />
+          </div>
+          <div className="divider"></div>
+          <div className="row">
+            <label>
+              Carga horária semanal:<span>*</span>
+            </label>
+            <Input
+              type="number"
+              value={workload}
+              isValid={isWorkloadValid}
+              onChange={(e) => {
+                if(e.length <= 2 && (e as unknown as number) <= 50){
+                  setWorkload(e as unknown as number);
+                  setIsWorkloadValid(true);
+                }else{
+                  setIsWorkloadValid(false);
+                }
+              }}
+              invalidMessage="O valor máximo é 50 horas"
+              max={50}
+            />
+          </div>
+        </div>
+
         <CustomButtom
           text={isEdit ? "Atualizar" : "Adicionar"}
           color="blue"

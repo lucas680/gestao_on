@@ -1,7 +1,7 @@
 import styles from "./input.module.scss";
 
 interface Iinput {
-  value: string;
+  value: string | number | undefined;
   onChange: (e: string) => void;
   onEnter?: () => void;
   isValid?: boolean;
@@ -10,9 +10,11 @@ interface Iinput {
   beforeIcon?: React.ReactNode;
   afterIcon?: React.ReactNode;
   max?: number;
+  type?: string;
 }
 
 export default function Input(props: Iinput) {
+
   return (
     <div>
       <div
@@ -24,9 +26,11 @@ export default function Input(props: Iinput) {
           <div className={styles.beforeIcon}>{props.beforeIcon}</div>
         )}
         <input
+          type={props.type}
           value={props.value}
           disabled={props.disabled}
           maxLength={props.max}
+          max={props.max}
           onChange={(e) => props.onChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && props.onEnter) {
