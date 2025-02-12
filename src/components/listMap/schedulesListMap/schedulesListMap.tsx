@@ -14,7 +14,7 @@ export default function SchedulesListMap(props: Imap) {
         <JournalIcon />
         <p>{props.item.title}</p>
       </div>
-      <p>{props.item.getFormattedCreatedDate}</p>
+      <p className={styles.date}>{props.item.getFormattedCreatedDate}</p>
     </div>
   );
 }
