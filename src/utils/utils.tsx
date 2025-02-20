@@ -105,6 +105,6 @@ export function closeLoading(){
   }
   const elementContent = document.getElementById("loading-section-content");
   if(elementContent){
-    elementContent.style.display = "initial";
+    elementContent.style.display = "block";
   }
 }
